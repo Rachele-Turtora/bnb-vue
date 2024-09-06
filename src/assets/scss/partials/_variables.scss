@@ -3,38 +3,12 @@
 -------------------------------- */
 
 //? variables background:
-$black: #2c2c2c;
-$gray: #5e5e5e;
-$red: #de0f0f;
+$primary: #00d9a6;
+$secondary: #fff;
+$tertiary: #000;
 
-//? variables background:
-$body: #F2F2F2;
-$footer: #263B40;
-$btn: #D96055;
-$bg_jolly: #AEBCBF;
-$table: #fff;
 
-//? colori text:
-$h_1: #BF0404;
-$h_2: #F2F2F2;
-$h_3: #263B40;
-$text1: #2c2c2c;
-$text2: #F2F2F2;
-$text3: #263B40;
+//? colore per bottoni:
+// $gradient: rgb(155,225,93);
+// background: linear-gradient(45deg, rgba(155,225,93,1) 25%, rgba(0,217,166,1) 100%); 
 
-//? shodow:
-$shodow: #000;
-$alpha: .3;
-
-//? bottoni:
-$create: #263B40;
-$back: #263B40;
-$show: #0066ff;
-$edit: #ffcc00;
-$delete: #D96055;
-
-//? background color:
-.bg-body {background-color: $body;}
-.bg-footer {background-color: $footer;}
-.bg-btn {background-color: $btn;}
-.bg-jolly {background-color: $bg_jolly;}
