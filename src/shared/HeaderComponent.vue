@@ -32,6 +32,7 @@ export default {
             </li>
           </ul>
         </div>
+        <font-awesome-icon :icon="['fas', 'search']" />
       </div>
     </nav>
   </header>
