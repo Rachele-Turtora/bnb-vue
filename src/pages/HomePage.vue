@@ -9,14 +9,14 @@ export default {
    props: {
 
    },
-   data(){
-      return{
-        store,
+   data() {
+      return {
+         store,
 
       }
    },
    components: {
-    
+
    }
 }
 
@@ -25,19 +25,9 @@ export default {
 
 
 <template>
-  
-  <h1 class="ta-center mt-20"> {{ store.text }}</h1>
-  <div class="container">
-        <img src="../../public/favicon/byh.svg" alt="logo">
-    </div>
-
+   <h1 class="ta-center mt-20"> {{ store.text }}</h1>
 </template>
 
 
 
-<style lang="scss" scoped>
-
-
-
-
-</style>
+<style lang="scss" scoped></style>
