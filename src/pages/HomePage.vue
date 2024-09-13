@@ -35,10 +35,8 @@ export default {
 
 </script>
 
-
-
 <template>
-   <div class="container">
+   <div class="container mt-4">
       <div class="row">
          <div class="col-3" v-for="apartment in store.api.apartments">
             <div class="m-2">

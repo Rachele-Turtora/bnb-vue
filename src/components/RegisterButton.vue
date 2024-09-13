@@ -1,0 +1,80 @@
+<script>
+// import:
+import { store } from "../store";
+
+export default {
+    nome: "RegisterButton",
+    data() {
+        return {
+            store,
+            isVisible: false
+        };
+    },
+    methods: {
+        toggleVisibility() {
+            this.isVisible = !this.isVisible;
+        }
+    }
+};
+</script>
+
+<template>
+    <div class="accesso col d-flex justify-content-end align-items-start m-2">
+        <button class="btn-login" @click="toggleVisibility">
+            <font-awesome-icon :icon="['fas', 'bars']" class="me-2" />
+            <font-awesome-icon :icon="['fas', 'user']" class="ms-2" />
+        </button>
+        <div class="visible border border-secondary-subtle bg-light rounded" v-show="isVisible">
+            <div>
+                <p class="registrati m-0">Registrati</p>
+            </div>
+            <div>
+                <p class="accedi m-0">Accedi</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+// import
+@use "../assets/scss/partials/variables" as *;
+
+.accesso {
+
+    position: relative;
+
+    .btn-login {
+        border: 1px solid $primary;
+        color: $primary;
+        padding: 10px 20px;
+        border-radius: 20px;
+
+        &:hover {
+            background-color: $primary;
+            color: white;
+        }
+
+    }
+
+    .visible {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        font-size: 13px;
+
+        .registrati {
+            padding: 20px 90px 20px 20px;
+        }
+
+        .accedi {
+            padding: 20px 90px 20px 20px;
+        }
+
+        div:hover {
+            background-color: rgb(234, 234, 234);
+            cursor: pointer;
+        }
+    }
+}
+</style>
+

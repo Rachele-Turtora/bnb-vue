@@ -29,6 +29,7 @@ import { faPersonSwimming } from '@fortawesome/free-solid-svg-icons';
 import { faPersonShelter } from '@fortawesome/free-solid-svg-icons';
 import { faTemperatureArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faWater } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     faSearch,
@@ -38,7 +39,8 @@ library.add(
     faPersonSwimming,
     faPersonShelter,
     faTemperatureArrowUp,
-    faWater
+    faWater,
+    faBars
 )
 //? append createApp in #app:
 createApp(App)
