@@ -22,9 +22,23 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 /* import specific icons */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faWifi } from '@fortawesome/free-solid-svg-icons';
+import { faCarSide } from '@fortawesome/free-solid-svg-icons';
+import { faPersonSwimming } from '@fortawesome/free-solid-svg-icons';
+import { faPersonShelter } from '@fortawesome/free-solid-svg-icons';
+import { faTemperatureArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faWater } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
-    faSearch
+    faSearch,
+    faUser,
+    faWifi,
+    faCarSide,
+    faPersonSwimming,
+    faPersonShelter,
+    faTemperatureArrowUp,
+    faWater
 )
 //? append createApp in #app:
 createApp(App)
