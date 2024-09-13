@@ -1,7 +1,8 @@
 <script>
 // import:
 import { store } from "../store";
-import RegisterButton from "../components/RegisterButton.vue"
+import RegisterButton from "../components/RegisterButton.vue";
+import axios from 'axios';
 
 export default {
 	nome: "Header",
@@ -11,49 +12,38 @@ export default {
 	data() {
 		return {
 			store,
-			search: 'frsgsr',
-			suggerimenti: [],
-			eventualirisultati: [
-				'esempio1',
-				'esempio2',
-				'esempio3',
-				'esempio4',
-				'esempio5',
-				'esempio6',
-				'tdhdthd',
-				'hdthtd',
-				'abta',
-				'abttba',
-				'abaeba',
-				'atbbatt',
-				'ytehe',
-			],
+			search: '',
+			suggerimenti: []
 		};
 	},
 	methods: {
-		inputUntente() {
-			let result = [];
-
-			if (this.search.length) {
-				result = this.eventualirisultati.filter((keyword) => {
-					return keyword.toLowerCase().includes(this.search.toLowerCase());
-				});
-				console.log(result);
-				console.log(this.search);
-				this.suggerimenti = result
-			}
-			this.display(result);
-		},
 
 		selectInput(index) {
 			this.search = this.suggerimenti[index];
 			this.suggerimenti = [];
+		},
+
+		searchApartments() {
+
+			const url = this.store.api.tomtomUrl + encodeURIComponent(this.search) + ".json";
+
+			const params = {
+				key: "hqfK54fHRUrLOi7htWUP65d2wejFf1hU",
+				limit: 6
+			};
+
+			axios.get(url, { params })
+				.then(response => {
+					this.suggerimenti = response.data.results.map(result => result.address.freeformAddress);
+				})
+		},
+
+		clear() {
+			this.suggerimenti = [];
+			this.search = "";
 		}
 	}
 };
-
-
-
 </script>
 
 <template>
@@ -61,22 +51,27 @@ export default {
 		<div class="container-lg">
 			<div class="row">
 				<div class="col-3 d-none d-lg-flex">
-					<a class="navbar-brand d-flex justify-content-start align-items-start" href="#"><img class="logo"
-							src="../../public/boolbnb.svg" alt="" /></a>
+					<a class="navbar-brand d-flex justify-content-start align-items-start" href="#">
+						<img class="logo" src="../../public/boolbnb.svg" alt="" />
+					</a>
 				</div>
 				<div class="col-6">
 					<div class="search-box">
-						<div class="row">
+
+						<div class="d-flex align-items-center p-3">
 							<input type="text" id="input-box" placeholder="scrivi l'inidizzo" autocomplete="off"
-								@keyup="inputUntente" v-model="search">
-							<button>cerca</button>
+								@keyup="searchApartments()" v-model="search">
+							<div class="clear-icon" @click="clear()">
+								<font-awesome-icon :icon="['fas', 'xmark']" class="ms-2" />
+							</div>
 						</div>
-						<div class="result-box">
-							<ul>
-								<li v-for="(suggerimento, index) in suggerimenti" @click="selectInput(index)">{{
-									suggerimento }}</li>
-							</ul>
-						</div>
+					</div>
+					<div class="result-box" v-if="suggerimenti.length">
+						<ul>
+							<li v-for="(suggerimento, index) in suggerimenti" @click="selectInput(index)">
+								{{ suggerimento }}
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div class="col-3">
@@ -88,7 +83,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// import
 @use "../assets/scss/partials/variables" as *;
 
 header {
@@ -116,7 +110,6 @@ header {
 
 		&:hover {
 			color: $primary;
-
 			font-weight: 600;
 		}
 	}
@@ -145,8 +138,6 @@ header {
 }
 
 .row {
-	display: flex;
-	align-items: center;
 	padding: 10px 20px;
 }
 
@@ -157,7 +148,6 @@ input {
 	border: 0;
 	outline: 0;
 	font: 18px;
-
 }
 
 .result-box ul li {
@@ -175,5 +165,12 @@ input {
 	background-color: transparent;
 	border: 0;
 	outline: 0;
+}
+
+.clear-icon {
+	cursor: pointer;
+	padding: 10px;
+	display: flex;
+	align-items: center;
 }
 </style>
