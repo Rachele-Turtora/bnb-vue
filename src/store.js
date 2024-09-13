@@ -8,7 +8,7 @@ export const store = reactive({
         apartments: [],
         baseUrl: "http://127.0.0.1:8000/api/",
         endpoints: {
-            apartmentsList: "home",
+            apartmentsList: "homes",
         }
     }
 })
