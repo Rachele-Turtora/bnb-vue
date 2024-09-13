@@ -2,7 +2,13 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-    text: 'Hello World!'
-    
+    text: 'Hello World!',
 
+    api: {
+        apartments: [],
+        baseUrl: "http://127.0.0.1:8000/api/",
+        endpoints: {
+            apartmentsList: "home",
+        }
+    }
 })
