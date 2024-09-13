@@ -7,9 +7,49 @@ export default {
   data() {
     return {
       store,
+      search : 'frsgsr',
+      suggerimenti: [],
+      eventualirisultati : [
+    'esempio1',
+    'esempio2',
+    'esempio3',
+    'esempio4',
+    'esempio5',
+    'esempio6',
+    'tdhdthd',
+    'hdthtd',
+    'abta',
+    'abttba',
+    'abaeba',
+    'atbbatt',
+    'ytehe',
+],
     };
   },
+  methods: {
+    inputUntente() {
+      let result = [];
+    
+    if (this.search.length) {
+        result = this.eventualirisultati.filter((keyword)=>{
+          return keyword.toLowerCase().includes(this.search.toLowerCase());
+        });
+        console.log(result);
+        console.log(this.search);
+        this.suggerimenti= result
+    }
+    this.display(result);
+    },
+    
+    selectInput(index) {
+     this.search = this.suggerimenti[index];
+     this.suggerimenti = [];
+}
+  }
 };
+
+
+
 </script>
 
 <template>
@@ -55,6 +95,17 @@ export default {
           <button class="btn-login">Accedi</button>
         </div>
       </div>
+    </div>
+    <div class="search-box">
+        <div class="row">
+            <input type="text" id="input-box" placeholder="scrivi l'inidizzo" autocomplete="off" @keyup="inputUntente" v-model="search">
+            <button>cerca</button>
+        </div>
+        <div class="result-box">
+            <ul>
+              <li v-for="(suggerimento, index) in suggerimenti" @click="selectInput(index)">{{ suggerimento }}</li>
+            </ul>
+        </div>
     </div>
   </header>
 </template>
@@ -102,4 +153,43 @@ header {
     }
   }
 }
+
+.search-box {
+width: 600px;
+background-color: aliceblue;
+margin: 200px auto 0;
+}
+.result-box ul {
+    border-top: 1px solid;
+    padding: 15px 10px;
+ }
+ .row {
+   display: flex;
+   align-items: center;
+   padding: 10px 20px;
+ }
+ input {
+   flex: 1;
+   height: 50px;
+   background: transparent;
+   border: 0;
+   outline: 0;
+   font: 18px;
+
+ }
+ .result-box ul li {
+    list-style-type: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+ }
+ .result-box ul li:hover {
+    background-color: aqua;
+ }
+.row button {
+   background-color: transparent;
+   border: 0;
+   outline: 0;
+}
+ 
 </style>
