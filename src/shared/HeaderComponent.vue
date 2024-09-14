@@ -70,13 +70,13 @@ export default {
 <template>
 	<header class="shadow">
 		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-3 d-none d-lg-flex">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-6 col-lg-3 order-1 order-lg-1 ">
 					<a class="navbar-brand d-flex justify-content-start align-items-start" href="#">
 						<img class="logo" src="../../public/boolbnb.svg" alt="" />
 					</a>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-sm-10 col-lg-6 order-3 order-lg-2">
 					<div class="search-box">
 
 						<div class="d-flex align-items-center p-3">
@@ -95,7 +95,7 @@ export default {
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-6 col-lg-3 order-2 order-lg-3">
 					<RegisterButton />
 				</div>
 			</div>
