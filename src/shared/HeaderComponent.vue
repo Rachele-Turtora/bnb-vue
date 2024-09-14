@@ -20,6 +20,12 @@ export default {
 	},
 	methods: {
 
+		searchByIcon() {
+			this.suggerimenti = [];
+			this.address = this.search;
+			this.getFilteredApartments();
+		},
+
 		async selectInput(index) {
 			this.search = this.suggerimenti[index];
 			this.suggerimenti = [];
@@ -77,14 +83,18 @@ export default {
 					</a>
 				</div>
 				<div class="col-sm-10 col-lg-6 order-3 order-lg-2">
-					<div class="search-box">
+					<div
+						class="search-box d-flex align-items-center justify-content-between border border-secondary-subtle px-3 py-2 my-3">
 
-						<div class="d-flex align-items-center p-3">
-							<input type="text" id="input-box" placeholder="scrivi l'inidizzo" autocomplete="off"
-								@keyup="searchApartments()" v-model="search">
+						<div class="address d-flex align-items-center p-2">
 							<div class="clear-icon" @click="clear()">
-								<font-awesome-icon :icon="['fas', 'xmark']" class="ms-2" />
+								<font-awesome-icon :icon="['fas', 'xmark']" />
 							</div>
+							<input type="text" id="input-box" placeholder="Indirizzo" autocomplete="off"
+								@keyup="searchApartments()" v-model="search" class="ms-3">
+						</div>
+						<div class="search d-flex align-items-center justify-content-center" @click="searchByIcon()">
+							<font-awesome-icon :icon="['fas', 'search']" />
 						</div>
 					</div>
 					<div class="result-box" v-if="suggerimenti.length">
@@ -150,7 +160,15 @@ header {
 
 .search-box {
 	width: 100%;
-	background-color: aliceblue;
+	border-radius: 50px;
+
+	.search {
+		width: 40px;
+		height: 40px;
+		color: white;
+		background-color: $primary;
+		border-radius: 50%;
+	}
 }
 
 .result-box ul {
@@ -164,7 +182,7 @@ header {
 
 input {
 	flex: 1;
-	height: 50px;
+	height: 40px;
 	background: transparent;
 	border: 0;
 	outline: 0;

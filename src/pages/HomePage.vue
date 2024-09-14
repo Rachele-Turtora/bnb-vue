@@ -33,7 +33,7 @@ export default {
 
 <template>
    <div class="container mt-4">
-      <div class="row justify-content-center">
+      <div class="row">
 
          <div class="col-lg-3 col-md-4 col-sm-6" v-for="apartment in store.api.filteredApartments" :key="apartment.id">
             <div class="m-2">
@@ -46,7 +46,7 @@ export default {
             </div>
          </div>
 
-         <div v-if="!store.api.filteredApartments.length" class="d-flex flex-wrap justify-content-center">
+         <div v-if="!store.api.filteredApartments.length" class="d-flex flex-wrap">
             <div class="col-lg-3 col-md-4 col-sm-6 col-8" v-for="apartment in store.api.apartments" :key="apartment.id">
                <div class="m-2">
                   <div class="img-container">
