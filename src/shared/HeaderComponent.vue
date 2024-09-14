@@ -13,14 +13,19 @@ export default {
 		return {
 			store,
 			search: '',
-			suggerimenti: []
+			suggerimenti: [],
+			address: "",
+			position: null
 		};
 	},
 	methods: {
 
-		selectInput(index) {
+		async selectInput(index) {
 			this.search = this.suggerimenti[index];
 			this.suggerimenti = [];
+			this.address = this.search;
+
+			this.getFilteredApartments();
 		},
 
 		searchApartments() {
@@ -41,21 +46,37 @@ export default {
 		clear() {
 			this.suggerimenti = [];
 			this.search = "";
+			this.store.api.filteredApartments = [];
+		},
+
+		getFilteredApartments() {
+			const url = this.store.api.baseUrl + this.store.api.endpoints.filteredApartmentsList;
+
+			const params = {
+				city: encodeURIComponent(this.search),
+				distance: 20
+			}
+
+			axios.get(url, { params })
+				.then(response => {
+					this.store.api.filteredApartments = response.data.results
+				})
 		}
+
 	}
 };
 </script>
 
 <template>
 	<header class="shadow">
-		<div class="container-lg">
-			<div class="row">
-				<div class="col-3 d-none d-lg-flex">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-3 d-none d-lg-flex">
 					<a class="navbar-brand d-flex justify-content-start align-items-start" href="#">
 						<img class="logo" src="../../public/boolbnb.svg" alt="" />
 					</a>
 				</div>
-				<div class="col-6">
+				<div class="col-lg-6">
 					<div class="search-box">
 
 						<div class="d-flex align-items-center p-3">
@@ -74,7 +95,7 @@ export default {
 						</ul>
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-lg-3">
 					<RegisterButton />
 				</div>
 			</div>
@@ -128,7 +149,7 @@ header {
 }
 
 .search-box {
-	width: 600px;
+	width: 100%;
 	background-color: aliceblue;
 }
 
