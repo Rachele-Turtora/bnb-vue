@@ -96,13 +96,14 @@ export default {
 						<div class="search d-flex align-items-center justify-content-center" @click="searchByIcon()">
 							<font-awesome-icon :icon="['fas', 'search']" />
 						</div>
-					</div>
-					<div class="result-box" v-if="suggerimenti.length">
-						<ul>
-							<li v-for="(suggerimento, index) in suggerimenti" @click="selectInput(index)">
-								{{ suggerimento }}
-							</li>
-						</ul>
+						<div class="result-box rounded" v-if="suggerimenti.length">
+							<ul>
+								<li v-for="(suggerimento, index) in suggerimenti" @click="selectInput(index)">
+									<span class="me-3"><font-awesome-icon :icon="['fas', 'map-marker-alt']" /></span>
+									{{ suggerimento }}
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 				<div class="col-6 col-lg-3 order-2 order-lg-3">
@@ -161,6 +162,7 @@ header {
 .search-box {
 	width: 100%;
 	border-radius: 50px;
+	position: relative;
 
 	.search {
 		width: 40px;
@@ -171,9 +173,26 @@ header {
 	}
 }
 
-.result-box ul {
-	border-top: 1px solid;
-	padding: 15px 10px;
+.result-box {
+	position: absolute;
+	top: 80px;
+	left: 60px;
+	background-color: white;
+
+	ul {
+		padding: 15px 0;
+
+		li {
+			list-style-type: none;
+			border-radius: 3px;
+			padding: 15px 50px 15px 20px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: rgba(0, 217, 166, 0.5);
+			}
+		}
+	}
 }
 
 .row {
@@ -187,17 +206,6 @@ input {
 	border: 0;
 	outline: 0;
 	font: 18px;
-}
-
-.result-box ul li {
-	list-style-type: none;
-	border-radius: 3px;
-	padding: 15px 10px;
-	cursor: pointer;
-}
-
-.result-box ul li:hover {
-	background-color: aqua;
 }
 
 .row button {

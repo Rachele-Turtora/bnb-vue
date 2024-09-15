@@ -31,6 +31,7 @@ import { faTemperatureArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faWater } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     faSearch,
@@ -42,7 +43,8 @@ library.add(
     faTemperatureArrowUp,
     faWater,
     faBars,
-    faXmark
+    faXmark,
+    faMapMarkerAlt
 )
 //? append createApp in #app:
 createApp(App)
