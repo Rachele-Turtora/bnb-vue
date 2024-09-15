@@ -15,8 +15,15 @@ export default {
 			search: '',
 			suggerimenti: [],
 			address: "",
-			position: null
+			position: null,
+			scrollTransform: false
 		};
+	},
+	mounted() {
+		window.addEventListener('scroll', this.handleScroll);
+	},
+	beforeUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
 	},
 	methods: {
 
@@ -25,6 +32,13 @@ export default {
 			this.address = this.search;
 			this.getFilteredApartments();
 		},
+		handleScroll() {
+            if (window.scrollY > 0) {
+                this.scrollTransform = true;
+            } else {
+                this.scrollTransform = false;
+            }
+        },
 
 		async selectInput(index) {
 			this.search = this.suggerimenti[index];
@@ -74,7 +88,7 @@ export default {
 </script>
 
 <template>
-	<header class="shadow">
+	<header class="shadow" :class="{'headerTransform': scrollTransform === true}">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-6 col-lg-3 order-1 order-lg-1 ">
@@ -219,5 +233,8 @@ input {
 	padding: 10px;
 	display: flex;
 	align-items: center;
+}
+.headerTransform {
+	transform: scaleY(0.8);
 }
 </style>
