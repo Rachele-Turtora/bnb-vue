@@ -4,6 +4,8 @@ import { createRouter, createWebHistory } from "vue-router";
 //? importiamo le pagine del progetto:
 import HomePage from './pages/HomePage.vue';
 import ResultsPage from './pages/ResultsPage.vue';
+import DetailPage from "./pages/DetailPage.vue";
+import NotFoundPage from "./pages/NotFoundPage.vue";
 
 //? creiamo rotte:
 const router = createRouter({
@@ -19,11 +21,17 @@ const router = createRouter({
       name: "results",
       component: ResultsPage,
     },
-    // {
-    //   path: "/Name/:slug", //? rotta parametrica per il detteglio
-    //   name: "detail",
-    //   component: NomeDetail,
-    // },
+    {
+      path: "/details/:slug",
+      name: "details",
+      component: DetailPage,
+    },
+    {
+      path: "/not-found",
+      name: "not-found",
+      component: NotFoundPage,
+    },
+    
   ],
 });
 export { router };

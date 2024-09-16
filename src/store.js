@@ -15,5 +15,6 @@ export const store = reactive({
         }
     },
 
-    search: ""
+    search: "",
+
 })

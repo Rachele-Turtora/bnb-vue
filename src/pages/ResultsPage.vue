@@ -2,8 +2,11 @@
 
 import { store } from '../store';
 import axios from 'axios';
+import CardsComponent from '../components/CardsComponent.vue';
 
 import GoogleMap from '../components/GoogleMapFrame.vue';
+import GoogleMapFrame from '../components/GoogleMapFrame.vue';
+
 
 
 
@@ -20,6 +23,7 @@ export default {
    },
    components: {
       GoogleMap,
+      CardsComponent
    },
    methods: {
 
@@ -39,18 +43,13 @@ export default {
          <p class="ms-3 mb-0 fs-6">Filtri</p>
       </div>
       <div class="row">
-         <div class="col-lg-3 col-md-4 col-sm-6" v-for="apartment in store.api.filteredApartments" :key="apartment.id">
-            <div class="m-2">
-               <div class="img-container">
-                  <img :src="apartment.image.startsWith('http') ? apartment.image : apartment.image_frontend"
-                     :alt="apartment.title" class="img-responsive rounded">
-               </div>
-               <h4 class="mt-2">{{ apartment.title }}</h4>
-               <p class="text-secondary">Host: {{ apartment.user?.name }}</p>
-            </div>
+         <div class="col-lg-3 col-md-4 col-sm-6" v-for="(apartment, index) in store.api.filteredApartments" :key="apartment.id">
+
+            <CardsComponent :apartment="apartment"/>
          </div>
       </div>
    </div>
+
 </template>
 
 

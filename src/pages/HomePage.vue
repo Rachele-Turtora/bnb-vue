@@ -2,6 +2,7 @@
 
 import { store } from '../store';
 import axios from "axios";
+import CardsComponent from '../components/CardsComponent.vue';
 
 
 export default {
@@ -13,6 +14,9 @@ export default {
       return {
          store
       }
+   },
+   components: {
+      CardsComponent,
    },
    methods: {
       getApartments() {
@@ -38,14 +42,8 @@ export default {
       <div class="row">
          <div class="d-flex flex-wrap">
             <div class="col-lg-3 col-md-4 col-sm-6 col-8" v-for="apartment in store.api.apartments" :key="apartment.id">
-               <div class="m-2">
-                  <div class="img-container">
-                     <img :src="apartment.image.startsWith('http') ? apartment.image : apartment.image_frontend"
-                        :alt="apartment.title" class="img-responsive rounded">
-                  </div>
-                  <h4 class="mt-2">{{ apartment.title }}</h4>
-                  <p class="text-secondary">Host: {{ apartment.user?.name }}</p>
-               </div>
+      
+               <CardsComponent :apartment="apartment"/>
             </div>
          </div>
       </div>
