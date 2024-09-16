@@ -7,16 +7,9 @@ export default {
     data() {
         return {
             store,
-            ifFixed: false
+
         }
     },
-    methods: {
-        isFixed() {
-            if (this.store.api.filteredApartments <= 5) {
-                this.ifFixed = true
-            }
-        }
-    }
 }
 
 </script>
@@ -24,7 +17,7 @@ export default {
 
 
 <template>
-    <footer class="bg-footer" :class="{ 'fixed': ifFixed === true }">
+    <footer class="bg-footer">
         <div class="container">
             <div class="row">
                 <div class="col col-xl-3 col-md-6 col-12">
@@ -103,12 +96,6 @@ export default {
 footer {
     min-height: 300px;
 
-    .fixed {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        right: 0;
-    }
 
     ul {
         padding: 0;

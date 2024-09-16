@@ -65,9 +65,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.container {
-   min-height: 500px;
-}
+
 
 img {
    height: 100%;
@@ -84,13 +82,5 @@ img {
 }
 
 
-@media (max-width: 767px) {
 
-   .container {
-
-      min-height: 300px;
-
-   }
-
-}
 </style>

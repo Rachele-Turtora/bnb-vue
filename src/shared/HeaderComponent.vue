@@ -132,6 +132,7 @@ export default {
 @use "../assets/scss/partials/variables" as *;
 
 header {
+	height: 120px;
 	font-size: 20px;
 	position: sticky;
 	top: 0;

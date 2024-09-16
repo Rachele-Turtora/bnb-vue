@@ -22,8 +22,10 @@ export default {
    <!--? HEADER -->
    <HeaderComponent />
    
-   <!--? CONTENT -->
-   <router-view></router-view>
+   <main>
+      <!--? CONTENT -->
+      <router-view></router-view>
+   </main>
    
    <!--? footer -->
    <FooterComponent />
@@ -32,4 +34,10 @@ export default {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+main {
+   min-height: calc(100vh - 120px);
+}
+
+</style>
