@@ -32,6 +32,12 @@ export default {
 
 <template>
    <div class="container mt-4">
+      <div class="filters border border-dark rounded p-3 d-flex align-items-center justify-content-center my-3 mx-2">
+         <span>
+            <font-awesome-icon :icon="['fas', 'bars-staggered']" class="fs-4" />
+         </span>
+         <p class="ms-3 mb-0 fs-6">Filtri</p>
+      </div>
       <div class="row">
          <div class="col-lg-3 col-md-4 col-sm-6" v-for="apartment in store.api.filteredApartments" :key="apartment.id">
             <div class="m-2">
@@ -62,5 +68,9 @@ img {
       transition: .3s;
       cursor: pointer;
    }
+}
+
+.filters {
+   width: 120px;
 }
 </style>

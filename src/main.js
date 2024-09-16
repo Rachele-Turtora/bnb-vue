@@ -32,6 +32,7 @@ import { faWater } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     faSearch,
@@ -44,7 +45,8 @@ library.add(
     faWater,
     faBars,
     faXmark,
-    faMapMarkerAlt
+    faMapMarkerAlt,
+    faBarsStaggered
 )
 //? append createApp in #app:
 createApp(App)
