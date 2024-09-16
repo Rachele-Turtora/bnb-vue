@@ -13,5 +13,7 @@ export const store = reactive({
             apartmentsList: "homes",
             filteredApartmentsList: "homes/search"
         }
-    }
+    },
+
+    search: ""
 })

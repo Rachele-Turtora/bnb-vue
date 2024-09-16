@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 //? importiamo le pagine del progetto:
 import HomePage from './pages/HomePage.vue';
-import ContactPage from './pages/ContactPage.vue';
+import ResultsPage from './pages/ResultsPage.vue';
 
 //? creiamo rotte:
 const router = createRouter({
@@ -15,9 +15,9 @@ const router = createRouter({
       component: HomePage,
     },
     {
-      path: "/contact",
-      name: "contact",
-      component: ContactPage,
+      path: "/results",
+      name: "results",
+      component: ResultsPage,
     },
     // {
     //   path: "/Name/:slug", //? rotta parametrica per il detteglio
