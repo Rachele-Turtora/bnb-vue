@@ -101,7 +101,7 @@ export default {
 @use '../assets/scss/partials/variables' as *;
 
 footer {
-    min-height: 350px;
+    min-height: 300px;
 
     .fixed {
         position: fixed;

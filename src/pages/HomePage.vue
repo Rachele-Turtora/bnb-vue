@@ -66,7 +66,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-   margin-bottom: 100px;
+   min-height: 500px;
 }
 
 img {
@@ -81,5 +81,16 @@ img {
       transition: .3s;
       cursor: pointer;
    }
+}
+
+
+@media (max-width: 767px) {
+
+   .container {
+
+      min-height: 300px;
+
+   }
+
 }
 </style>
