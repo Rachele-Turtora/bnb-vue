@@ -71,5 +71,11 @@ img {
 
 .img-container {
    height: 180px;
+
+   &:hover {
+      transform: scale(1.01);
+      transition: .3s;
+      cursor: pointer;
+   }
 }
 </style>

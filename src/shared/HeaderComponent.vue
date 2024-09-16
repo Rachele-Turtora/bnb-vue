@@ -23,7 +23,7 @@ export default {
 		window.addEventListener('scroll', this.handleScroll);
 	},
 	beforeUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
+		window.removeEventListener('scroll', this.handleScroll);
 	},
 	methods: {
 
@@ -33,12 +33,12 @@ export default {
 			this.getFilteredApartments();
 		},
 		handleScroll() {
-            if (window.scrollY > 0) {
-                this.scrollTransform = true;
-            } else {
-                this.scrollTransform = false;
-            }
-        },
+			if (window.scrollY > 0) {
+				this.scrollTransform = true;
+			} else {
+				this.scrollTransform = false;
+			}
+		},
 
 		async selectInput(index) {
 			this.search = this.suggerimenti[index];
@@ -88,7 +88,7 @@ export default {
 </script>
 
 <template>
-	<header class="shadow" :class="{'headerTransform': scrollTransform === true}">
+	<header class="shadow" :class="{ 'headerTransform': scrollTransform === true }">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-6 col-lg-3 order-1 order-lg-1 ">
@@ -137,103 +137,68 @@ header {
 	top: 0;
 	background-color: whitesmoke;
 
-	.logo {
-		width: 150px;
-	}
+	.row {
+		padding: 10px 20px;
 
-	ul {
-		padding: 0;
-		margin: 10px;
-
-		li {
-			list-style-type: none;
+		.logo {
+			width: 150px;
 		}
-	}
 
-	a {
-		color: $tertiary;
-		text-decoration: none;
+		.search-box {
+			width: 100%;
+			border-radius: 50px;
+			position: relative;
 
-		&:hover {
-			color: $primary;
-			font-weight: 600;
-		}
-	}
+			.clear-icon {
+				cursor: pointer;
+				padding: 10px;
+				display: flex;
+				align-items: center;
+			}
 
-	.btn-login {
-		border: 1px solid $primary;
-		color: $primary;
-		padding: 5px 10px;
-		border-radius: 20px;
+			input {
+				flex: 1;
+				height: 40px;
+				background: transparent;
+				border: 0;
+				outline: 0;
+				font: 18px;
+			}
 
-		&:hover {
-			background-color: $primary;
-			color: white;
-		}
-	}
-}
+			.search {
+				width: 40px;
+				height: 40px;
+				color: white;
+				background-color: $primary;
+				border-radius: 50%;
+			}
 
-.search-box {
-	width: 100%;
-	border-radius: 50px;
-	position: relative;
+			.result-box {
+				position: absolute;
+				top: 80px;
+				left: 60px;
+				background-color: white;
 
-	.search {
-		width: 40px;
-		height: 40px;
-		color: white;
-		background-color: $primary;
-		border-radius: 50%;
-	}
-}
+				ul {
+					padding: 15px 0;
+					margin: 10px;
 
-.result-box {
-	position: absolute;
-	top: 80px;
-	left: 60px;
-	background-color: white;
+					li {
+						list-style-type: none;
+						border-radius: 3px;
+						padding: 15px 50px 15px 20px;
+						cursor: pointer;
 
-	ul {
-		padding: 15px 0;
-
-		li {
-			list-style-type: none;
-			border-radius: 3px;
-			padding: 15px 50px 15px 20px;
-			cursor: pointer;
-
-			&:hover {
-				background-color: rgba(0, 217, 166, 0.5);
+						&:hover {
+							background-color: rgba(0, 217, 166, 0.5);
+						}
+					}
+				}
 			}
 		}
 	}
 }
 
-.row {
-	padding: 10px 20px;
-}
-
-input {
-	flex: 1;
-	height: 40px;
-	background: transparent;
-	border: 0;
-	outline: 0;
-	font: 18px;
-}
-
-.row button {
-	background-color: transparent;
-	border: 0;
-	outline: 0;
-}
-
-.clear-icon {
-	cursor: pointer;
-	padding: 10px;
-	display: flex;
-	align-items: center;
-}
 .headerTransform {
 	transform: scaleY(0.8);
 }
