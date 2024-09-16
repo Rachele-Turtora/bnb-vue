@@ -26,10 +26,10 @@ export default {
         </button>
         <div class="visible border border-secondary-subtle bg-light rounded" v-show="isVisible">
             <div>
-                <p class="registrati m-0">Registrati</p>
+                <a target="_blank" href="http://localhost:8000/register"><p class="registrati m-0">Registrati</p></a>                
             </div>
             <div>
-                <p class="accedi m-0">Accedi</p>
+                <a target="_blank" href="http://localhost:8000/login"><p class="accedi m-0">Accedi</p></a>              
             </div>
         </div>
     </div>
@@ -40,6 +40,8 @@ export default {
 @use "../assets/scss/partials/variables" as *;
 
 .accesso {
+
+    a {color:black}
 
     position: relative;
 
