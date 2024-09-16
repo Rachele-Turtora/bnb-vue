@@ -24,30 +24,8 @@ export default {
    
    <!--? CONTENT -->
    <router-view></router-view>
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum vero debitis possimus mollitia reprehenderit cumque, illo ullam repellendus! Deleniti pariatur doloremque earum ab rerum, explicabo qui deserunt recusandae voluptatum?
-   <!--? FOOTER -->
+   
+   <!--? footer -->
    <FooterComponent />
 
 

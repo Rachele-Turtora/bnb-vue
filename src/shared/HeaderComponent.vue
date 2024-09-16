@@ -88,7 +88,7 @@ export default {
 </script>
 
 <template>
-	<header class="shadow" :class="{ 'headerTransform': scrollTransform === true }">
+	<header class="shadow" >
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-6 col-lg-3 order-1 order-lg-1 ">
@@ -98,7 +98,7 @@ export default {
 				</div>
 				<div class="col-sm-10 col-lg-6 order-3 order-lg-2">
 					<div
-						class="search-box d-flex align-items-center justify-content-between border border-secondary-subtle px-3 py-2 my-3">
+						class="search-box d-flex align-items-center justify-content-between border border-secondary-subtle px-3 py-2 my-3" :class="{ 'search-transform': scrollTransform === true }">
 
 						<div class="address d-flex align-items-center p-2">
 							<div class="clear-icon" @click="clear()">
@@ -136,6 +136,7 @@ header {
 	position: sticky;
 	top: 0;
 	background-color: whitesmoke;
+	z-index: 300;
 
 	.row {
 		padding: 10px 20px;
@@ -199,7 +200,8 @@ header {
 	}
 }
 
-.headerTransform {
-	transform: scaleY(0.8);
+.search-transform {
+	transform: scale(.8);
+	transition: .5s;
 }
 </style>
