@@ -65,6 +65,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.container {
+   margin-bottom: 100px;
+}
+
 img {
    height: 100%;
 }
