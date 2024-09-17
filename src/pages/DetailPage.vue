@@ -21,6 +21,7 @@ export default {
                 "Aria condizionata": "fan",
                 "Kit medico": "kit-medical"
             },
+            unique: [],
             store,
         }
     },
@@ -41,7 +42,21 @@ export default {
                         this.$route.push({ name: 'not-found' });
                     }
 
+                    this.uniqueServices();
+
                 })
+        },
+        uniqueServices() {
+            let services = this.apartment.services;
+
+            for (let i = 0; i < services.length; i++) {
+                if (!this.unique.some(service => service.name === services[i].name)) {
+                    this.unique.push(services[i]);
+                }
+            }
+
+            console.log(this.unique);
+            return this.unique;
         }
 
     },
@@ -82,11 +97,10 @@ export default {
                     <p v-if="apartment.description"><span>Descrizione: </span> {{ apartment.description }} </p>
                 </div>
 
-                <div v-if="apartment.services?.length" class="services">
+                <div v-if="this.unique.length" class="services">
                     <h3>Cosa troverai:</h3>
                     <ul>
-                        <li v-for="service in apartment.services" class="d-flex mt-3" :key="service.name">
-                            <!-- Usa direttamente l'icona -->
+                        <li v-for="service in this.unique" class="d-flex mt-3" :key="service.name">
                             <font-awesome-icon v-if="services[service.name]" :icon="['fas', services[service.name]]"
                                 class="me-3 fs-5" />
                             <p>{{ service.name }}</p>
@@ -94,7 +108,7 @@ export default {
                     </ul>
                 </div>
                 <div class="message">
-                    <MessageComponet :apartmentSlug="apartment.slug"/>
+                    <MessageComponet :apartmentSlug="apartment.slug" />
                 </div>
                 <div class="map mt-3">
                     <MapComponent class="mt-5" :apartment="apartment" />
