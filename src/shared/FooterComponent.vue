@@ -81,7 +81,7 @@ export default {
                 </div>
                 <div class="col-xl-4 col-md-4 col-12 align">
                     <p class="mt-5"> <span class="headline">Saguimi Su:</span> </p>
-                    <ul class="d-flex mx-5">
+                    <ul class="d-flex seguimi-su">
                         <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'github']" /></div></li>
                         <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'instagram']" /></div></li>
                         <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'twitter']" /></div></li>
@@ -118,6 +118,7 @@ footer {
     ul {
         padding: 0;
         color:white;
+        
         
         
     }
@@ -182,13 +183,16 @@ footer {
         }
     }
 
-    
+    .seguimi-su{
+        max-width: 220px;
+        margin: 0 auto;
+    }
     .contenitore-bianco {
         width: 40px;
         height: 40px;
         display:flex;
         background-color: white;
-        margin-left: 16px;
+        
     }
     .icona-social {
         display: block;
