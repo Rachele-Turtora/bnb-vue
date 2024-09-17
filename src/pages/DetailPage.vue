@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import { store } from '../store';
+import MapComponent from '../components/MapComponent.vue';
     export default {
         name: 'DetailPage',
         data() {
@@ -9,6 +10,9 @@ import { store } from '../store';
                 apartment: [],
                 store,
             }
+        },
+        components: {
+            MapComponent
         },
         methods: {
             getApiDetail(){
@@ -62,8 +66,11 @@ import { store } from '../store';
                     <p class="mt-4"><span>Bagni: </span> {{ apartment.bathrooms }}</p>                  
                 </div>
             </div>
-            <div class="card_desscription my-3">
+            <div class="card_desscription my-5">
                 <p v-if="apartment.description"><span>Descrizione: </span> {{ apartment.description }} </p>
+            </div>
+            <div class="map mt-3">
+                <MapComponent class="mt-5" :apartment="apartment"/>
             </div>
         </div>
     </div>
@@ -107,6 +114,7 @@ import { store } from '../store';
             overflow: scroll;
             @extend %shadow;
             cursor: pointer;
+           
             span {
                 color: $primary;
                 font-weight: 600;
@@ -114,6 +122,7 @@ import { store } from '../store';
                 
                 .card_detail {
                     align-items: center;
+
                    
                     .card_image {
                         height: 400px;
