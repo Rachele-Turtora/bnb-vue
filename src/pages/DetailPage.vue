@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { store } from '../store';
 import MapComponent from '../components/MapComponent.vue';
+import MessageComponet from '../components/MessageComponet.vue';
 export default {
     name: 'DetailPage',
     data() {
@@ -24,7 +25,8 @@ export default {
         }
     },
     components: {
-        MapComponent
+        MapComponent,
+        MessageComponet,
     },
     methods: {
         getApiDetail() {
@@ -90,6 +92,9 @@ export default {
                             <p>{{ service.name }}</p>
                         </li>
                     </ul>
+                </div>
+                <div class="message">
+                    <MessageComponet :apartmentSlug="apartment.slug"/>
                 </div>
                 <div class="map mt-3">
                     <MapComponent class="mt-5" :apartment="apartment" />
