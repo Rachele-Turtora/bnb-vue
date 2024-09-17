@@ -18,7 +18,8 @@ export default {
                 content: '',
             },
             messageSuccess: '',
-            messageError: ''
+            messageError: '',
+            isModalVisible: false
 
         }
     },
@@ -56,6 +57,21 @@ export default {
           }
         });
     },
+    showModal() {
+
+      if (this.isModalVisible === false) {
+        this.isModalVisible = true;
+      }
+      else {
+        
+        this.isModalVisible = false;
+      }
+
+
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    }
 
 
   },
@@ -65,54 +81,30 @@ export default {
 </script>
 
 <template>
-    <!-- <div class="message-component">
-        <div class="container">
-            <div class="form-message">
-                <form @submit.prevent="sendMessage">
-                    <div>
-                        <label for="name">Nome:</label>
-                        <input type="text" v-model="form.name" id="name" required />
-                    </div>
-                    <div>
-                        <label for="email">Email:</label>
-                        <input type="email" v-model="form.email" id="email" required />
-                    </div>
-                    <div>
-                        <label for="message">Messaggio:</label>
-                        <textarea v-model="form.content" id="message" required></textarea>
-                    </div>
-                    <button type="submit">Invia Messaggio</button>
-                 </form>
-            </div>
-            <div class="info-message">
-                
-                <div v-if="messageSuccess" class="success">
-                {{ messageSuccess }}
-                </div>
-                <div v-if="messageError" class="error">
-                {{ messageError }}
-                </div>
-            </div>
-        </div>
+    
+    <button @click="showModal" class="btn-gradient">Manda Un messaggio</button>
 
-    </div> -->
-    <form action="#" @submit.prevent="sendMessage">
-       <div id="form">
-        <h1>Compila il form sottostante per inviarmi un messaggio</h1>
-        <label for="name">Nome:</label>
-        <input type="text" name="name" v-model="form.name" id="name" required/>
-
-        <label for="email">Email:</label>
-        <input type="text" name="email" v-model="form.email" id="email" required />
-
-        <label for="message">Messaggio</label>
-        <textarea name="message" v-model="form.content" id="message" required cols="30" rows="10"></textarea>
-        
-        <!-- <input type="submit" id="submit" name="submit" value="Invia" /> -->
-            <button type="submit">Invia</button>
+    
+    <div v-show="isModalVisible" class="relative">
+      <form action="#" @submit.prevent="sendMessage">
+        <div id="form">
+          <h1>Compila il form sottostante per inviarmi un messaggio</h1>
+          <label for="name">Nome:</label>
+          <input type="text" name="name" v-model="form.name" id="name" required/>
           
-       </div>
-    </form>
+          <label for="email">Email:</label>
+          <input type="text" name="email" v-model="form.email" id="email" required />
+          
+          <label for="message">Messaggio</label>
+          <textarea name="message" v-model="form.content" id="message" required cols="30" rows="10"></textarea>
+          
+          <!-- <input type="submit" id="submit" name="submit" value="Invia" /> -->
+          <button type="submit">Invia</button>
+          
+        </div>
+      </form>
+      <button class="btn-absolute" @click="closeModal">X</button>
+    </div>
             <div class="info-message">
                 
                 <div v-if="messageSuccess" class="success">
@@ -187,5 +179,34 @@ button {
 }
 button:active {
   transform: scale(0.95);
+}
+.relative {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+.btn-absolute {
+  position: absolute;
+  top: 9px;
+  font-weight: 600;
+  font-size: 15px;
+  right: 10px;
+  color: red;
+  border: none;
+}
+.btn-gradient {
+  
+                padding: 10px 15px;
+                background: $gradient;
+                border-radius: 10px;
+                border: none;
+                color: $text2;
+                @extend %shadow;
+
+                &:hover {
+                    opacity: .85;
+                    @extend %shadow2;
+                }
+            
 }
 </style>
