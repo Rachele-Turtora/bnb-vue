@@ -33,6 +33,10 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons';
+import { faTv } from '@fortawesome/free-solid-svg-icons';
+import { faElevator } from '@fortawesome/free-solid-svg-icons';
+import { faFan } from '@fortawesome/free-solid-svg-icons';
+import { faKitMedical } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     faSearch,
@@ -46,7 +50,11 @@ library.add(
     faBars,
     faXmark,
     faMapMarkerAlt,
-    faBarsStaggered
+    faBarsStaggered,
+    faTv,
+    faElevator,
+    faFan,
+    faKitMedical
 )
 //? append createApp in #app:
 createApp(App)
