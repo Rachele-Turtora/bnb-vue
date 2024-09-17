@@ -11,7 +11,7 @@ export default {
             apartment: [],
             services: {
                 "WiFi": "wifi",
-                "Posto macchina": "car",
+                "Parcheggio": "car-side",
                 "Piscina": "person-swimming",
                 "Portineria": "person-shelter",
                 "Sauna": "temperature-arrow-up",
@@ -155,6 +155,10 @@ export default {
             @extend %shadow;
             cursor: pointer;
 
+            h3 {
+                color: $primary;
+            }
+
             span {
                 color: $primary;
                 font-weight: 600;
@@ -174,10 +178,8 @@ export default {
                         }
                     }
 
-                    .card_info {}
-                }
 
-                .card_desscription {}
+                }
             }
 
         }
