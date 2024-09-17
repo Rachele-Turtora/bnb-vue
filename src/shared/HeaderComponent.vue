@@ -112,7 +112,7 @@ export default {
 						:class="{ 'search-transform': scrollTransform === true }">
 
 						<div class="address d-flex align-items-center p-2">
-							<div class="clear-icon" @click="clear()">
+							<div v-if="$route.name === 'home'" class="clear-icon" @click="clear()">
 								<font-awesome-icon :icon="['fas', 'xmark']" />
 							</div>
 							<input type="text" id="input-box" placeholder="Indirizzo" autocomplete="off"
