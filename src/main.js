@@ -37,6 +37,7 @@ import { faTv } from '@fortawesome/free-solid-svg-icons';
 import { faElevator } from '@fortawesome/free-solid-svg-icons';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import { faKitMedical } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
     faSearch,
@@ -54,7 +55,11 @@ library.add(
     faTv,
     faElevator,
     faFan,
-    faKitMedical
+    faKitMedical,
+    faInstagram,
+    faFacebook,
+    faGithub,
+    faTwitter
 )
 //? append createApp in #app:
 createApp(App)

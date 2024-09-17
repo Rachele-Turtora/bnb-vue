@@ -20,7 +20,7 @@ export default {
     <footer class="bg-footer">
         <div class="container">
             <div class="row">
-                <div class="col col-xl-3 col-md-6 col-12">
+                <div class="col col-xl-4 col-md-4 col-12">
                     <div class="logo-byhyons">
                         <a class="navbar-brand" href="#">
                             <div class="logo_boolbnb mt-5">
@@ -61,16 +61,33 @@ export default {
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 col-12 align">
+                <!-- <div class="col-xl-3 col-md-6 col-12 align">
                     <p class="mt-5"> <span class="headline">Menu di Navigazione:</span> </p>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+
+                </div> -->
+                <div class="col-xl-4 col-md-4 col-12 align mt-7">
+                    <!-- <p class="mt-5"> <span class="headline">Autenticazione:</span> </p> -->
+                    <ul class="mt-5 pt-5">
+                        <li><a target="_blank" href="http://localhost:8000/register"><p class="registrati m-0">Registrati</p></a>  </li>
+                        <li><a target="_blank" href="http://localhost:8000/login"><p class="accedi m-0">Accedi</p></a> </li>
+                        
+                    </ul>
 
                 </div>
-                <div class="col-xl-3 col-md-6 col-12 align">
-                    <p class="mt-5"> <span class="headline">Autenticazione:</span> </p>
-
-                </div>
-                <div class="col-xl-3 col-md-6 col-12 align">
+                <div class="col-xl-4 col-md-4 col-12 align">
                     <p class="mt-5"> <span class="headline">Saguimi Su:</span> </p>
+                    <ul class="d-flex mx-5">
+                        <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'github']" /></div></li>
+                        <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'instagram']" /></div></li>
+                        <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'twitter']" /></div></li>
+                        <li class="contenitore-bianco"><div class="icona-social"><font-awesome-icon :icon="['fab', 'facebook']" /></div></li>
+                        
+                    </ul>
                     <div class="instagram logo-social">
                         <a href="#" target="_blank">
 
@@ -95,10 +112,14 @@ export default {
 
 footer {
     min-height: 300px;
-
+    text-align: center;
+    
 
     ul {
         padding: 0;
+        color:white;
+        
+        
     }
 
     a {
@@ -107,16 +128,19 @@ footer {
 
     li {
         list-style-type: none;
+        margin: 0 6px;
     }
+    .logo-byhyons {
 
-    svg {
-        width: 180px;
-        margin-left: -10px;
-        filter: drop-shadow(5px 5px 5px rgba(86, 83, 83, 0.2));
-        transition: .3s;
-
-        &:hover {
-            transform: scale(1.05);
+        svg {
+            width: 180px;
+            margin-left: -10px;
+            filter: drop-shadow(5px 5px 5px rgba(86, 83, 83, 0.2));
+            transition: .3s;
+    
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
 
@@ -124,6 +148,7 @@ footer {
         font-weight: 600;
         font-size: 18PX;
     }
+    
 
     .footer-link,
     a {
@@ -157,13 +182,24 @@ footer {
         }
     }
 
-    .instagram {
-        width: 170px;
+    
+    .contenitore-bianco {
+        width: 40px;
+        height: 40px;
+        display:flex;
+        background-color: white;
+        margin-left: 16px;
     }
-
-    .github {
-        width: 150px;
-        margin-top: 10px;
+    .icona-social {
+        display: block;
+        background-color: $footer;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: none;
+        margin:auto;
+        line-height: 36px;
+        font-size: 18px;
     }
 }
 
