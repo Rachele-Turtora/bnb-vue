@@ -17,39 +17,44 @@ export default {
    },
    data() {
       return {
-         store,
-
+         store
       }
    },
    components: {
       GoogleMap,
       CardsComponent
    },
-   methods: {
 
-   }
+   computed: {
+      apartmentsNum() {
+         return this.store.api.filteredApartments.length;
+      }
+   },
 }
 
 </script>
 
-
-
 <template>
    <div class="container mt-4">
-      <div class="filters border border-dark rounded p-3 d-flex align-items-center justify-content-center my-3 mx-2">
-         <span>
-            <font-awesome-icon :icon="['fas', 'bars-staggered']" class="fs-4" />
-         </span>
-         <p class="ms-3 mb-0 fs-6">Filtri</p>
-      </div>
-      <div class="row">
-         <div class="col-lg-3 col-md-4 col-sm-6" v-for="(apartment, index) in store.api.filteredApartments" :key="apartment.id">
 
-            <CardsComponent :apartment="apartment"/>
+      <div class="d-flex justify-content-between align-items-center mx-3">
+         <p><strong>{{ apartmentsNum }} alloggi in questa località</strong></p>
+         <div class="filters border border-dark rounded p-3 d-flex align-items-center justify-content-center my-3 mx-2">
+            <span>
+               <font-awesome-icon :icon="['fas', 'bars-staggered']" class="fs-4" />
+            </span>
+            <p class="ms-3 mb-0 fs-6">Filtri</p>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-lg-3 col-md-4 col-sm-6" v-for="(apartment, index) in store.api.filteredApartments"
+            :key="apartment.id">
+
+            <CardsComponent :apartment="apartment" />
          </div>
       </div>
    </div>
-
 </template>
 
 
