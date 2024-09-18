@@ -12,7 +12,9 @@ export default {
    },
    data() {
       return {
-         store
+         store,
+         currentPage: 1,
+         page: [],
       }
    },
    components: {
@@ -24,11 +26,32 @@ export default {
 
          const url = this.store.api.baseUrl + this.store.api.endpoints.apartmentsList;
 
-         axios.get(url)
+         axios.get(url, {
+            params: {
+               page: this.currentPage,
+            }
+         })
             .then(response => {
                this.store.api.apartments = response.data.results.data;
+               this.page = response.data.results;
+               console.log(response.data);
+               console.log(this.page.results);
+               
+
             })
-      }
+      },
+
+      //? Navigazione pagina:
+      prevPage() {
+            this.currentPage--;
+            this.getApartments();
+            window.scrollTo(0, 0);
+        },
+        nextPage() {
+            this.currentPage++;
+            this.getApartments();
+            window.scrollTo(0, 0);
+        }
    },
    created() {
       this.getApartments()
@@ -46,6 +69,15 @@ export default {
                <CardsComponent :apartment="apartment"/>
             </div>
          </div>
+         <!--? bottoni per la navigazione -->
+         <div class="pagination">
+               <button @click="prevPage" class="mr-25" v-if="page?.prev_page_url">
+                  <i class="fas fa-chevron-left"><</i>
+               </button>
+               <button @click="nextPage" v-if="page?.next_page_url">
+                  <i class="fas fa-chevron-right">></i>
+               </button>
+         </div>
       </div>
    </div>
 </template>
@@ -53,6 +85,9 @@ export default {
 
 
 <style lang="scss" scoped>
+
+@use '../assets/scss/partials/extende' as *;
+
 img {
    height: 100%;
 }
@@ -66,4 +101,20 @@ img {
       cursor: pointer;
    }
 }
+.pagination {
+   justify-content: center;
+   margin: 35px 0 50px;
+   
+   button {
+      text-align: center;
+      padding: 10px 35px;
+      background: $gradient;
+      color: $secondary;
+      border-radius: 10px;
+      border: none;
+      @extend %shadow;
+      &:hover {opacity: .85; @extend %shadow2;}
+   }
+}
+
 </style>
