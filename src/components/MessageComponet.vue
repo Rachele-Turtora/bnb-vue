@@ -94,15 +94,16 @@ export default {
 </script>
 
 <template>
-  <button @click="showModal" class="btn-gradient">Manda Un messaggio</button>
+  <button @click="showModal" class="btn-gradient">Invia un messaggio</button>
   <div class="send-message" :class="{ 'no-scroll modal-container': isModalVisible }">
     <div>
       <div v-show="isModalVisible" class="form-modal">
         <form action="#" @submit.prevent="sendMessage">
-          <div id="form">
+          <div id="form" >
+            <!-- <buttosn class="btn-absolute" @click="closeModal">X</buttosn> -->
+            <a class="btn-absolute" @click="closeModal">X</a>
             <div class="d-flex justify-content-between align-items-center">
               <h1>Compila il form sottostante per inviarmi un messaggio</h1>
-              <button class="btn-absolute" @click="closeModal">X</button>
             </div>
             <label for="name">Nome:</label>
             <input type="text" name="name" v-model="form.name" id="name" required />
@@ -114,7 +115,7 @@ export default {
             <textarea name="message" v-model="form.content" id="message" required cols="30" rows="10"></textarea>
 
             <!-- <input type="submit" id="submit" name="submit" value="Invia" /> -->
-            <button type="submit">Invia</button>
+            <button class="bottone" type="submit">Invia</button>
 
           </div>
         </form>
@@ -153,7 +154,7 @@ export default {
 
 .modal-container {
   position: fixed;
-  z-index: 1;
+  z-index: 50;
   left: 0;
   top: 0;
   width: 100vw;
@@ -177,6 +178,17 @@ export default {
 h1 {
   font-size: 16px;
   color: black;
+}
+
+.bottone {
+  text-align: center;
+  padding: 10px 35px;
+  background: $gradient;
+  color: $secondary;
+  border-radius: 10px;
+  border: none;
+  @extend %shadow;
+  &:hover {opacity: .85; @extend %shadow2;}
 }
 
 label,
@@ -249,8 +261,11 @@ button:active {
 }
 
 .btn-absolute {
+  margin-bottom: 20px;
+  display: block;
+  text-align: end;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 18px;
   color: red;
   border: none;
 }
