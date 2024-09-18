@@ -5,6 +5,11 @@
 
 
 
+
+body.no-scroll {
+    
+    overflow: hidden;
+}
 //? per modale:
 /*.no-scroll {overflow: hidden;}
 .screen.holding {display: none;}
