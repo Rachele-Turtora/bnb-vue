@@ -28,7 +28,6 @@ export default {
                 </router-link>
             </div>
             <h4 class="mt-2">{{ apartment.title }}</h4>
-            <p class="text-secondary">Host: {{ apartment.user?.name }}</p>
         </div>
 
     </div>
