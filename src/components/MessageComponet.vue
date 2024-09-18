@@ -78,10 +78,16 @@ export default {
 
       this.messageError = "";
       this.messageSuccess = "";
-    }
-
+    },
+    
 
   },
+  watch: {
+  // whenever active changes, this function will run
+  isModalVisible: function () {
+    document.body.style.overflow = this.isModalVisible ? 'hidden' : ''
+  }
+}
 
 }
 
@@ -264,4 +270,6 @@ button:active {
   }
 
 }
+
+
 </style>
