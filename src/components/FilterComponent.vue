@@ -16,6 +16,7 @@ export default {
         numrooms: 0,
         numtoilets: 0,
         numbeds: 0,
+        rangeDistance: 10, 
       },
       filterResultApartments: [],
     };
@@ -23,8 +24,10 @@ export default {
   methods: {
     filterResult() {
       this.filterResultApartments = store.api.filteredApartments;
-      console.log(this.filterResultApartments);
 
+      this.filterResultApartments = this.filterResultApartments.filter((apartment) =>
+        apartment.distance <= this.filters.rangeDistance
+      );
       if (
         this.filters.service1 ||
         this.filters.service2 ||
@@ -38,7 +41,7 @@ export default {
           this.filterResultApartments = this.filterResultApartments.filter(
             (appartment) => {
               return appartment.services.some(
-                (service) => (service.pivot.service_id = 1)
+                (service) => (service.pivot.service_id === 1)
               );
             }
           );
@@ -49,7 +52,7 @@ export default {
           this.filterResultApartments = this.filterResultApartments.filter(
             (appartment) => {
               return appartment.services.some(
-                (service) => (service.pivot.service_id = 2)
+                (service) => (service.pivot.service_id === 2)
               );
             }
           );
@@ -60,7 +63,7 @@ export default {
           this.filterResultApartments = this.filterResultApartments.filter(
             (appartment) => {
               return appartment.services.some(
-                (service) => (service.pivot.service_id = 3)
+                (service) => (service.pivot.service_id === 3)
               );
             }
           );
@@ -71,7 +74,7 @@ export default {
           this.filterResultApartments = this.filterResultApartments.filter(
             (appartment) => {
               return appartment.services.some(
-                (service) => (service.pivot.service_id = 4)
+                (service) => (service.pivot.service_id === 4)
               );
             }
           );
@@ -82,7 +85,7 @@ export default {
           this.filterResultApartments = this.filterResultApartments.filter(
             (appartment) => {
               return appartment.services.some(
-                (service) => (service.pivot.service_id = 5)
+                (service) => (service.pivot.service_id === 5)
               );
             }
           );
@@ -93,7 +96,7 @@ export default {
           this.filterResultApartments = this.filterResultApartments.filter(
             (appartment) => {
               return appartment.services.some(
-                (service) => (service.pivot.service_id = 6)
+                (service) => (service.pivot.service_id === 6)
               );
             }
           );
@@ -104,7 +107,7 @@ export default {
         console.log("filtro camere attivo");
 
         this.filterResultApartments = this.filterResultApartments.filter(
-          (appartment) => (appartment.rooms = this.filters.numrooms)
+          (appartment) => (appartment.rooms === this.filters.numrooms)
         );
       }
 
@@ -112,7 +115,7 @@ export default {
         console.log("filtro letti attivo");
 
         this.filterResultApartments = this.filterResultApartments.filter(
-          (appartment) => (appartment.beds = this.filters.numbeds)
+          (appartment) => (appartment.beds === this.filters.numbeds)
         );
       }
 
@@ -120,7 +123,7 @@ export default {
         console.log("filtro bagni attivo");
 
         this.filterResultApartments = this.filterResultApartments.filter(
-          (appartment) => (appartment.bathrooms = this.filters.numtoilets)
+          (appartment) => (appartment.bathrooms === this.filters.numtoilets)
         );
       }
 
@@ -176,6 +179,7 @@ export default {
               max="80"
               step="10"
               id="range-distance"
+              v-model="filters.rangeDistance"
             />
 
             <div
