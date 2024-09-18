@@ -37,6 +37,8 @@ import { faTv } from '@fortawesome/free-solid-svg-icons';
 import { faElevator } from '@fortawesome/free-solid-svg-icons';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import { faKitMedical } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
@@ -56,6 +58,8 @@ library.add(
     faElevator,
     faFan,
     faKitMedical,
+    faArrowLeft,
+    faArrowRight,
     faInstagram,
     faFacebook,
     faGithub,

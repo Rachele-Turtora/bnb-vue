@@ -36,22 +36,22 @@ export default {
                this.page = response.data.results;
                console.log(response.data);
                console.log(this.page.results);
-               
+
 
             })
       },
 
       //? Navigazione pagina:
       prevPage() {
-            this.currentPage--;
-            this.getApartments();
-            window.scrollTo(0, 0);
-        },
-        nextPage() {
-            this.currentPage++;
-            this.getApartments();
-            window.scrollTo(0, 0);
-        }
+         this.currentPage--;
+         this.getApartments();
+         window.scrollTo(0, 0);
+      },
+      nextPage() {
+         this.currentPage++;
+         this.getApartments();
+         window.scrollTo(0, 0);
+      }
    },
    created() {
       this.getApartments()
@@ -65,18 +65,18 @@ export default {
       <div class="row">
          <div class="d-flex flex-wrap">
             <div class="col-lg-3 col-md-4 col-sm-6 col-8" v-for="apartment in store.api.apartments" :key="apartment.id">
-      
-               <CardsComponent :apartment="apartment"/>
+
+               <CardsComponent :apartment="apartment" />
             </div>
          </div>
          <!--? bottoni per la navigazione -->
          <div class="pagination">
-               <button @click="prevPage" class="mr-25" v-if="page?.prev_page_url">
-                  <i class="fas fa-chevron-left"><</i>
-               </button>
-               <button @click="nextPage" v-if="page?.next_page_url">
-                  <i class="fas fa-chevron-right">></i>
-               </button>
+            <button @click="prevPage" class="mr-25" v-if="page?.prev_page_url">
+               <font-awesome-icon :icon="['fas', 'arrow-left']" />
+            </button>
+            <button @click="nextPage" v-if="page?.next_page_url">
+               <font-awesome-icon :icon="['fas', 'arrow-right']" />
+            </button>
          </div>
       </div>
    </div>
@@ -85,7 +85,6 @@ export default {
 
 
 <style lang="scss" scoped>
-
 @use '../assets/scss/partials/extende' as *;
 
 img {
@@ -101,10 +100,11 @@ img {
       cursor: pointer;
    }
 }
+
 .pagination {
    justify-content: center;
    margin: 35px 0 50px;
-   
+
    button {
       text-align: center;
       padding: 10px 35px;
@@ -113,8 +113,11 @@ img {
       border-radius: 10px;
       border: none;
       @extend %shadow;
-      &:hover {opacity: .85; @extend %shadow2;}
+
+      &:hover {
+         opacity: .85;
+         @extend %shadow2;
+      }
    }
 }
-
 </style>
