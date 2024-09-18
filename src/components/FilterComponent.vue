@@ -15,6 +15,7 @@ export default {
         numbeds: 0,
         rangeDistance: 10,
       },
+      filterResultApartments: [],
     };
   },
   methods: {
@@ -29,6 +30,13 @@ export default {
     filterResult() {
       this.store.api.filteredApartments = store.api.filteredApartments;
 
+
+      // 1. Filtro per  distanza
+      if (this.filters.rangeDistance) {
+        this.store.api.filteredApartments = this.store.api.filteredApartments.filter(
+          (apartment) => apartment.distance <= this.filters.rangeDistance
+        );
+      }
       if (this.selectedServices.length > 0) {
         console.log("Filtraggio per servizi attivi");
 
@@ -125,6 +133,7 @@ export default {
               max="80"
               step="10"
               id="range-distance"
+              v-model="filters.rangeDistance"
             />
 
             <div
