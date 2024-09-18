@@ -88,7 +88,7 @@ export default {
 </script>
 <template>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn-filters" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <div class="d-flex align-items-center">
       <span>
         <font-awesome-icon :icon="['fas', 'bars-staggered']" class="fs-4" />
@@ -154,4 +154,25 @@ export default {
     </div>
   </div>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+@use '../assets/scss/partials/extende' as *;
+
+.btn-filters {
+  border: 1px solid $primary;
+  padding: 10px 15px 8px 15px;
+  color: $primary;
+  background-color: transparent;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $primary;
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+</style>

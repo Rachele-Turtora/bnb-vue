@@ -26,10 +26,14 @@ export default {
         </button>
         <div class="visible border border-secondary-subtle bg-light rounded" v-show="isVisible">
             <div>
-                <a target="_blank" href="http://localhost:8000/register"><p class="registrati m-0">Registrati</p></a>                
+                <a target="_blank" href="http://localhost:8000/register">
+                    <p class="registrati m-0">Registrati</p>
+                </a>
             </div>
             <div>
-                <a target="_blank" href="http://localhost:8000/login"><p class="accedi m-0">Accedi</p></a>              
+                <a target="_blank" href="http://localhost:8000/login">
+                    <p class="accedi m-0">Accedi</p>
+                </a>
             </div>
         </div>
     </div>
@@ -41,7 +45,9 @@ export default {
 
 .accesso {
 
-    a {color:black}
+    a {
+        color: black
+    }
 
     position: relative;
 
@@ -50,10 +56,15 @@ export default {
         color: $primary;
         padding: 10px 20px;
         border-radius: 20px;
+        background-color: transparent;
 
         &:hover {
             background-color: $primary;
             color: white;
+        }
+
+        &:active {
+            transform: scale(0.95);
         }
 
     }

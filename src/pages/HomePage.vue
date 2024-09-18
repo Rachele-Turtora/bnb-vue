@@ -64,7 +64,7 @@ export default {
    <div class="container mt-4">
       <div class="row">
          <div class="d-flex flex-wrap">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-8" v-for="apartment in store.api.apartments" :key="apartment.id">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="apartment in store.api.apartments" :key="apartment.id">
 
                <CardsComponent :apartment="apartment" />
             </div>
@@ -118,6 +118,13 @@ img {
          opacity: .85;
          @extend %shadow2;
       }
+   }
+}
+
+@media (max-width: 576px) {
+   .col-12 {
+      width: 80%;
+      margin: 0 auto;
    }
 }
 </style>

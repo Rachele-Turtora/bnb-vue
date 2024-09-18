@@ -20,7 +20,7 @@ export default {
 
 <template>
     <div>
-        <div class="m-2">
+        <div class="m-3">
             <div class="img-container">
                 <router-link :to="{ name: 'details', params: { slug: apartment.slug } }" class="mr-15 link">
                     <img :src="apartment.image.startsWith('http') ? apartment.image : apartment.image_frontend"
@@ -52,5 +52,11 @@ img {
 
 .filters {
     width: 120px;
+}
+
+@media (max-width: 576px) {
+    .img-container {
+        height: 45vw;
+    }
 }
 </style>

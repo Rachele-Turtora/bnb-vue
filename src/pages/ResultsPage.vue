@@ -40,13 +40,13 @@ export default {
          <p>
             <strong>{{ apartmentsNum }} alloggi in questa località</strong>
          </p>
-         <div class="filters my-3 mx-2">
+         <div class="filters my-3">
             <FilterComponent @filter-apartments="updateFilteredApartments" />
          </div>
       </div>
 
       <div class="row">
-         <div class="col-lg-3 col-md-4 col-sm-6" v-for="(apartment, index) in store.api.filteredApartments"
+         <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="(apartment, index) in store.api.filteredApartments"
             :key="apartment.id">
             <CardsComponent :apartment="apartment" />
          </div>
@@ -71,5 +71,12 @@ img {
 
 .filters {
    width: 120px;
+}
+
+@media (max-width: 576px) {
+   .col-12 {
+      width: 80%;
+      margin: 0 auto;
+   }
 }
 </style>
