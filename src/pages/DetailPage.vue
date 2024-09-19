@@ -100,27 +100,29 @@ export default {
             <span>Descrizione: </span> {{ apartment.description }}
           </p>
         </div>
+        <div class="row d-flex">
+          <div v-if="this.unique.length" class="services w-50">
+            <h3>Cosa troverai:</h3>
+            <ul>
+              <li
+                v-for="service in this.unique"
+                class="d-flex mt-3"
+                :key="service.name"
+              >
+                <font-awesome-icon
+                  v-if="services[service.name]"
+                  :icon="['fas', services[service.name]]"
+                  class="me-3 fs-5"
+                />
+                <p>{{ service.name }}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="message w-50 text-center">
+            <MessageComponet :apartmentSlug="apartment.slug" />
+          </div>
+        </div>
 
-        <div v-if="this.unique.length" class="services">
-          <h3>Cosa troverai:</h3>
-          <ul>
-            <li
-              v-for="service in this.unique"
-              class="d-flex mt-3"
-              :key="service.name"
-            >
-              <font-awesome-icon
-                v-if="services[service.name]"
-                :icon="['fas', services[service.name]]"
-                class="me-3 fs-5"
-              />
-              <p>{{ service.name }}</p>
-            </li>
-          </ul>
-        </div>
-        <div class="message">
-          <MessageComponet :apartmentSlug="apartment.slug" />
-        </div>
         <div class="map mt-3">
           <MapComponent class="mt-5" :apartment="apartment" />
         </div>

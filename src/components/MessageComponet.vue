@@ -1,11 +1,9 @@
-
 <script>
-
-import { store } from '../store';
-import axios from 'axios';
+import { store } from "../store";
+import axios from "axios";
 
 export default {
-  name: 'MessageComponent',
+  name: "MessageComponent",
   props: {
     apartmentSlug: { type: String },
   },
@@ -13,15 +11,14 @@ export default {
     return {
       store,
       form: {
-        name: '',
-        email: '',
-        content: '',
+        name: "",
+        email: "",
+        content: "",
       },
-      messageSuccess: '',
-      messageError: '',
-      isModalVisible: false
-
-    }
+      messageSuccess: "",
+      messageError: "",
+      isModalVisible: false,
+    };
   },
   methods: {
     sendMessage() {
@@ -32,17 +29,20 @@ export default {
       };
 
       axios
-        .post(`${this.store.api.baseUrl}homes/${this.apartmentSlug}/message`, messageData)
+        .post(
+          `${this.store.api.baseUrl}homes/${this.apartmentSlug}/message`,
+          messageData
+        )
         .then((response) => {
           if (response.status === 201) {
             // Mostra il messaggio di successo:
             this.messageSuccess = response.data.message;
             //? pulisci  messaggi di errore:
-            this.messageError = '';
+            this.messageError = "";
             // resetta il form:
-            this.form.name = '';
-            this.form.email = '';
-            this.form.content = '';
+            this.form.name = "";
+            this.form.email = "";
+            this.form.content = "";
 
             this.isModalVisible = false;
           }
@@ -50,28 +50,26 @@ export default {
         .catch((error) => {
           if (error.response.status === 422) {
             // errori di validazione:
-            this.messageError = 'Ci sono errori nei dati inseriti. Verifica e riprova.';
-            this.messageSuccess = '';
+            this.messageError =
+              "Ci sono errori nei dati inseriti. Verifica e riprova.";
+            this.messageSuccess = "";
+            this.isModalVisible = false;
           } else {
             // gestione errori:
-            this.messageError = 'Si è verificato un errore. Riprova più tardi.';
-            this.messageSuccess = '';
+            this.messageError = "Si è verificato un errore. Riprova più tardi.";
+            this.messageSuccess = "";
+            this.isModalVisible = false;
           }
         });
     },
     showModal() {
-
       if (this.isModalVisible === false) {
         this.isModalVisible = true;
         this.messageError = "";
         this.messageSuccess = "";
-      }
-      else {
-
+      } else {
         this.isModalVisible = false;
       }
-
-
     },
     closeModal() {
       this.isModalVisible = false;
@@ -79,44 +77,61 @@ export default {
       this.messageError = "";
       this.messageSuccess = "";
     },
-    
-
   },
   watch: {
-  // whenever active changes, this function will run
-  isModalVisible: function () {
-    document.body.style.overflow = this.isModalVisible ? 'hidden' : ''
-  }
-}
-
-}
-
+    // whenever active changes, this function will run
+    isModalVisible: function () {
+      document.body.style.overflow = this.isModalVisible ? "hidden" : "";
+    },
+  },
+};
 </script>
 
 <template>
   <button @click="showModal" class="btn-gradient">Invia un messaggio</button>
-  <div class="send-message" :class="{ 'no-scroll modal-container': isModalVisible }">
+  <div
+    class="send-message"
+    :class="{ 'no-scroll modal-container': isModalVisible }"
+  >
     <div>
       <div v-show="isModalVisible" class="form-modal">
         <form action="#" @submit.prevent="sendMessage">
-          <div id="form" >
+          <div id="form">
             <!-- <buttosn class="btn-absolute" @click="closeModal">X</buttosn> -->
             <a class="btn-absolute" @click="closeModal">X</a>
             <div class="d-flex justify-content-between align-items-center">
               <h1>Compila il form sottostante per inviarmi un messaggio</h1>
             </div>
             <label for="name">Nome:</label>
-            <input type="text" name="name" v-model="form.name" id="name" required />
+            <input
+              type="text"
+              name="name"
+              v-model="form.name"
+              id="name"
+              required
+            />
 
             <label for="email">Email:</label>
-            <input type="text" name="email" v-model="form.email" id="email" required />
+            <input
+              type="text"
+              name="email"
+              v-model="form.email"
+              id="email"
+              required
+            />
 
             <label for="message">Messaggio</label>
-            <textarea name="message" v-model="form.content" id="message" required cols="30" rows="10"></textarea>
+            <textarea
+              name="message"
+              v-model="form.content"
+              id="message"
+              required
+              cols="30"
+              rows="10"
+            ></textarea>
 
             <!-- <input type="submit" id="submit" name="submit" value="Invia" /> -->
             <button class="bottone" type="submit">Invia</button>
-
           </div>
         </form>
       </div>
@@ -124,19 +139,17 @@ export default {
   </div>
 
   <div class="info-message m-4">
-
-    <div v-if="messageSuccess" class="success">
+    <div v-if="messageSuccess" class="bg-success p-3 radius-5 success">
       {{ messageSuccess }}
     </div>
-    <div v-if="messageError" class="error">
+    <div v-if="messageError" class="bg-danger p-3 radius-5 error">
       {{ messageError }}
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/scss/partials/extende' as *;
-
+@use "../assets/scss/partials/extende" as *;
 
 .no-scroll {
   overflow: hidden;
@@ -188,7 +201,10 @@ h1 {
   border-radius: 10px;
   border: none;
   @extend %shadow;
-  &:hover {opacity: .85; @extend %shadow2;}
+  &:hover {
+    opacity: 0.85;
+    @extend %shadow2;
+  }
 }
 
 label,
@@ -253,7 +269,6 @@ button {
   background-color: transparent;
   padding: 4px 8px;
   color: $footer;
-
 }
 
 button:active {
@@ -271,7 +286,6 @@ button:active {
 }
 
 .btn-gradient {
-
   padding: 10px 15px;
   background: $gradient;
   border-radius: 10px;
@@ -280,11 +294,8 @@ button:active {
   @extend %shadow;
 
   &:hover {
-    opacity: .85;
+    opacity: 0.85;
     @extend %shadow2;
   }
-
 }
-
-
 </style>
