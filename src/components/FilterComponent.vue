@@ -80,7 +80,7 @@ export default {
 
       const params = {
         city: encodeURIComponent(this.store.search),
-        distance: this.filters.rangeDistance
+        distance: this.filters.rangeDistance * 1000
       }
 
       return axios.get(url, { params })

@@ -69,7 +69,7 @@ export default {
 
 			const params = {
 				city: encodeURIComponent(this.store.search),
-				distance: 20
+				distance: 20000
 			}
 
 			axios.get(url, { params })
