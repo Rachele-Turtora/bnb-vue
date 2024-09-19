@@ -30,12 +30,12 @@ export default {
     filterResult() {
       this.store.api.filteredApartments = store.api.filteredApartments;
 
-
       // 1. Filtro per  distanza
       if (this.filters.rangeDistance) {
-        this.store.api.filteredApartments = this.store.api.filteredApartments.filter(
-          (apartment) => apartment.distance <= this.filters.rangeDistance
-        );
+        this.store.api.filteredApartments =
+          this.store.api.filteredApartments.filter(
+            (apartment) => apartment.distance <= this.filters.rangeDistance
+          );
       }
       if (this.selectedServices.length > 0) {
         console.log("Filtraggio per servizi attivi");
@@ -88,12 +88,12 @@ export default {
       this.selectedServices = [];
 
       this.$nextTick(() => {
-        const rangeInput = document.getElementById('range-distance');
+        const rangeInput = document.getElementById("range-distance");
         if (rangeInput) {
           rangeInput.value = 10;
         }
       });
-    }
+    },
   },
   created() {
     this.getServices();
@@ -102,7 +102,12 @@ export default {
 </script>
 <template>
   <!-- Button trigger modal -->
-  <button type="button" class="btn-filters" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button
+    type="button"
+    class="btn-filters"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
     <div class="d-flex align-items-center">
       <span>
         <font-awesome-icon :icon="['fas', 'bars-staggered']" class="fs-4" />
@@ -112,27 +117,65 @@ export default {
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">
             Filtra la ricerca
           </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="close()"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            @click="close()"
+          ></button>
         </div>
         <form @submit.prevent="filterResult">
           <div class="modal-body">
-            <label for="customRange3" class="form-label">Cerca nel raggio di:</label>
-            <input type="range" class="form-range" min="5" max="100" step="5" id="range-distance"
-              v-model="filters.rangeDistance" />
-            <span id="range-value" class="d-flex justify-content-center">{{ filters.rangeDistance }} Km</span>
+            <label for="customRange3" class="form-label"
+              >Cerca nel raggio di:</label
+            >
+            <input
+              type="range"
+              class="form-range"
+              min="5"
+              max="100"
+              step="5"
+              id="range-distance"
+              v-model="filters.rangeDistance"
+            />
+            <span id="range-value" class="d-flex justify-content-center"
+              >{{ filters.rangeDistance }} Km</span
+            >
 
-            <div class="service-section my-4 d-flex justify-content-evenly flex-wrap">
-              <div class="service" v-for="service in services" :key="service.id">
-                <input type="checkbox" class="btn-check" :id="'service-' + service.id" v-model="this.selectedServices"
-                  :value="service.id" autocomplete="off" />
-                <label class="btn btn-outline-primary" :for="'service-' + service.id">
+            <div
+              class="service-section my-4 d-flex justify-content-evenly flex-wrap"
+            >
+              <div
+                class="service"
+                v-for="service in services"
+                :key="service.id"
+              >
+                <input
+                  type="checkbox"
+                  class="btn-check"
+                  :id="'service-' + service.id"
+                  v-model="this.selectedServices"
+                  :value="service.id"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  :for="'service-' + service.id"
+                >
                   {{ service.name }}
                 </label>
               </div>
@@ -141,26 +184,49 @@ export default {
             <div class="room-section">
               <div class="row my-2">
                 <h4 class="w-50">Numero di camere</h4>
-                <input class="input-filter w-25" type="number" name="rooms" id="rooms-numb"
-                  v-model="this.filters.numrooms" />
+                <input
+                  class="input-filter w-25"
+                  type="number"
+                  name="rooms"
+                  id="rooms-numb"
+                  v-model="this.filters.numrooms"
+                />
               </div>
               <div class="row my-2">
                 <h4 class="w-50">Numero di letti</h4>
-                <input class="input-filter w-25" type="number" name="beds" id="beds-numb"
-                  v-model="this.filters.numbeds" />
+                <input
+                  class="input-filter w-25"
+                  type="number"
+                  name="beds"
+                  id="beds-numb"
+                  v-model="this.filters.numbeds"
+                />
               </div>
               <div class="row my-2">
                 <h4 class="w-50">Numero di bagni</h4>
-                <input class="input-filter w-25" type="number" name="toilet" id="toilet-numb"
-                  v-model="this.filters.numtoilets" />
+                <input
+                  class="input-filter w-25"
+                  type="number"
+                  name="toilet"
+                  id="toilet-numb"
+                  v-model="this.filters.numtoilets"
+                />
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-danger" data-bs-dismiss="modal" @click="close()">
+            <button
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              @click="close()"
+            >
               Reset
             </button>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
               Filtra
             </button>
           </div>
@@ -170,7 +236,7 @@ export default {
   </div>
 </template>
 <style lang="scss">
-@use '../assets/scss/partials/extende' as *;
+@use "../assets/scss/partials/extende" as *;
 
 .btn-filters {
   border: 1px solid $primary;
