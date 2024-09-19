@@ -18,8 +18,10 @@ export default {
       messageSuccess: "",
       messageError: "",
       isModalVisible: false,
+      elementVisible: true
     };
   },
+  
   methods: {
     sendMessage() {
       const messageData = {
@@ -54,11 +56,13 @@ export default {
               "Ci sono errori nei dati inseriti. Verifica e riprova.";
             this.messageSuccess = "";
             this.isModalVisible = false;
+            setTimeout(() => this.elementVisible = false, 3000);
           } else {
             // gestione errori:
             this.messageError = "Si è verificato un errore. Riprova più tardi.";
             this.messageSuccess = "";
             this.isModalVisible = false;
+            setTimeout(() => this.elementVisible = false, 3000);
           }
         });
     },
@@ -67,6 +71,7 @@ export default {
         this.isModalVisible = true;
         this.messageError = "";
         this.messageSuccess = "";
+        this.elementVisible = true;
       } else {
         this.isModalVisible = false;
       }
@@ -139,10 +144,10 @@ export default {
   </div>
 
   <div class="info-message m-4">
-    <div v-if="messageSuccess" class="bg-success p-3 radius-5 success">
+    <div v-if="messageSuccess"  v-show="elementVisible" class="bg-success p-3 radius-5 success">
       {{ messageSuccess }}
     </div>
-    <div v-if="messageError" class="bg-danger p-3 radius-5 error">
+    <div v-if="messageError"  v-show="elementVisible" class="bg-danger p-3 radius-5 error">
       {{ messageError }}
     </div>
   </div>
