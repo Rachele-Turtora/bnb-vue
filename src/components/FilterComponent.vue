@@ -79,7 +79,23 @@ export default {
 
       console.log(this.store.api.filteredApartments);
       this.$emit("filter-apartments", store.api.filteredApartments);
+
+      this.rangeDistance = 10;
     },
+    close() {
+      this.filters.rangeDistance = 10;
+      this.filters.numrooms = 0;
+      this.filters.numbeds = 0;
+      this.filters.numtoilets = 0;
+      this.selectedServices = [];
+
+      this.$nextTick(() => {
+        const rangeInput = document.getElementById('range-distance');
+        if (rangeInput) {
+          rangeInput.value = 10;
+        }
+      });
+    }
   },
   created() {
     this.getServices();
@@ -105,13 +121,14 @@ export default {
           <h1 class="modal-title fs-5" id="exampleModalLabel">
             Filtra la ricerca
           </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="close()"></button>
         </div>
         <form @submit.prevent="filterResult">
           <div class="modal-body">
             <label for="customRange3" class="form-label">Cerca nel raggio di:</label>
-            <input type="range" class="form-range" min="10" max="80" step="10" id="range-distance"
+            <input type="range" class="form-range" min="5" max="100" step="5" id="range-distance"
               v-model="filters.rangeDistance" />
+            <span id="range-value" class="d-flex justify-content-center">{{ filters.rangeDistance }} Km</span>
 
             <div class="service-section my-4 d-flex justify-content-evenly flex-wrap">
               <div class="service" v-for="service in services" :key="service.id">
@@ -142,7 +159,7 @@ export default {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="close()">
               Filtra
             </button>
           </div>
