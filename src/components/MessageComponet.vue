@@ -21,7 +21,7 @@ export default {
       elementVisible: true
     };
   },
-  
+
   methods: {
     sendMessage() {
       const messageData = {
@@ -45,7 +45,7 @@ export default {
             this.form.name = "";
             this.form.email = "";
             this.form.content = "";
-
+            setTimeout(() => this.elementVisible = false, 3000);
             this.isModalVisible = false;
           }
         })
@@ -94,10 +94,7 @@ export default {
 
 <template>
   <button @click="showModal" class="btn-gradient">Invia un messaggio</button>
-  <div
-    class="send-message"
-    :class="{ 'no-scroll modal-container': isModalVisible }"
-  >
+  <div class="send-message" :class="{ 'no-scroll modal-container': isModalVisible }">
     <div>
       <div v-show="isModalVisible" class="form-modal">
         <form action="#" @submit.prevent="sendMessage">
@@ -108,32 +105,13 @@ export default {
               <h1>Compila il form sottostante per inviarmi un messaggio</h1>
             </div>
             <label for="name">Nome:</label>
-            <input
-              type="text"
-              name="name"
-              v-model="form.name"
-              id="name"
-              required
-            />
+            <input type="text" name="name" v-model="form.name" id="name" required />
 
             <label for="email">Email:</label>
-            <input
-              type="text"
-              name="email"
-              v-model="form.email"
-              id="email"
-              required
-            />
+            <input type="text" name="email" v-model="form.email" id="email" required />
 
             <label for="message">Messaggio</label>
-            <textarea
-              name="message"
-              v-model="form.content"
-              id="message"
-              required
-              cols="30"
-              rows="10"
-            ></textarea>
+            <textarea name="message" v-model="form.content" id="message" required cols="30" rows="10"></textarea>
 
             <!-- <input type="submit" id="submit" name="submit" value="Invia" /> -->
             <button class="bottone" type="submit">Invia</button>
@@ -144,10 +122,10 @@ export default {
   </div>
 
   <div class="info-message m-4">
-    <div v-if="messageSuccess"  v-show="elementVisible" class="bg-success p-3 radius-5 success">
+    <div v-if="messageSuccess" v-show="elementVisible" class="bg-success p-3 radius-5 success">
       {{ messageSuccess }}
     </div>
-    <div v-if="messageError"  v-show="elementVisible" class="bg-danger p-3 radius-5 error">
+    <div v-if="messageError" v-show="elementVisible" class="bg-danger p-3 radius-5 error">
       {{ messageError }}
     </div>
   </div>
@@ -206,6 +184,7 @@ h1 {
   border-radius: 10px;
   border: none;
   @extend %shadow;
+
   &:hover {
     opacity: 0.85;
     @extend %shadow2;
