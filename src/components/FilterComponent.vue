@@ -79,8 +79,6 @@ export default {
 
       console.log(this.store.api.filteredApartments);
       this.$emit("filter-apartments", store.api.filteredApartments);
-
-      this.rangeDistance = 10;
     },
     close() {
       this.filters.rangeDistance = 10;
@@ -159,7 +157,10 @@ export default {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="close()">
+            <button class="btn btn-danger" data-bs-dismiss="modal" @click="close()">
+              Reset
+            </button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
               Filtra
             </button>
           </div>
