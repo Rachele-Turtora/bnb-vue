@@ -121,18 +121,21 @@ export default {
     </div>
   </div>
 
-  <div class="info-message m-4">
-    <div v-if="messageSuccess" v-show="elementVisible" class="bg-success p-3 radius-5 success">
-      {{ messageSuccess }}
+    <div class="mt-2 width-50">
+
+      <div v-if="messageSuccess" v-show="elementVisible" class="messageSuccess">
+        {{ messageSuccess }}
+      </div>
+      <div v-if="messageError" v-show="elementVisible" class="messageError">
+        {{ messageError }}
+      </div>
     </div>
-    <div v-if="messageError" v-show="elementVisible" class="bg-danger p-3 radius-5 error">
-      {{ messageError }}
-    </div>
-  </div>
+  
 </template>
 
 <style lang="scss" scoped>
 @use "../assets/scss/partials/extende" as *;
+@use "../assets/scss/main.scss" as *;
 
 .no-scroll {
   overflow: hidden;
@@ -281,5 +284,10 @@ button:active {
     opacity: 0.85;
     @extend %shadow2;
   }
+}
+.width-50 {
+  width: fit-content;
+  margin-left: 20px;
+  
 }
 </style>

@@ -12,3 +12,24 @@
 @use './partials/mixin' as *;
 @use './partials/common' as *;
 @use "vue3-carousel/dist/carousel.css";
+
+
+.messageSuccess {
+    padding: 10px 15px;
+        background:  linear-gradient(45deg, rgba(155,225,93,1) 25%, rgba(0,217,166,1) 100%);
+        border-radius: 10px;
+        border: none;
+        color: #fff;
+        @extend %shadow;
+
+}
+
+.messageError {
+    padding: 10px 15px;
+        background:  red;
+        border-radius: 10px;
+        border: none;
+        color: #fff;
+        @extend %shadow;
+
+}

@@ -120,10 +120,10 @@ export default {
               </li>
             </ul>
           </div>
-          <div class="message w-50 text-center">
-            <MessageComponet :apartmentSlug="apartment.slug" />
-          </div>
         </div>
+        
+          <MessageComponet :apartmentSlug="apartment.slug" />
+        
 
         <div class="map mt-3">
           <MapComponent class="mt-5" :apartment="apartment" />

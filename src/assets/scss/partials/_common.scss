@@ -2,6 +2,7 @@
             * COMMON
 -------------------------------- */
 @use './variables' as *;
+@use './extende' as *;
 
 
 
@@ -10,6 +11,7 @@ body.no-scroll {
     
     overflow: hidden;
 }
+
 //? per modale:
 /*.no-scroll {overflow: hidden;}
 .screen.holding {display: none;}
