@@ -288,6 +288,7 @@ button:active {
 .width-50 {
   width: fit-content;
   margin-left: 20px;
+  margin-top: 15px;
   
 }
 </style>
