@@ -42,7 +42,20 @@ export default {
             this.$route.push({ name: "not-found" });
           }
 
+          this.RegisterView();
           this.uniqueServices();
+        });
+    },
+    RegisterView() {
+      const url = this.store.api.baseUrl + "visuals"
+      axios.post(url, {
+        home_id: this.apartment.id
+      })
+        .then(response => {
+          console.log('Visualizzazione registrata:', response.data.message);
+        })
+        .catch(error => {
+          console.error('Errore nella registrazione della visualizzazione:', error);
         });
     },
     uniqueServices() {
@@ -79,14 +92,10 @@ export default {
         <div class="card_detail row">
           <h2 class="mb-5">{{ apartment.title }}</h2>
           <div class="card_image col-12 col-md-5 align-content-center">
-            <img
-              :src="
-                apartment.image && apartment.image.startsWith('http')
-                  ? apartment.image
-                  : apartment.image_frontend
-              "
-              :alt="apartment.title"
-            />
+            <img :src="apartment.image && apartment.image.startsWith('http')
+              ? apartment.image
+              : apartment.image_frontend
+              " :alt="apartment.title" />
           </div>
           <div class="card_info col-12 col-md-7 mt-5 ps-5">
             <p class="mt-4"><span>Indirizzo: </span> {{ apartment.address }}</p>
@@ -104,16 +113,9 @@ export default {
           <div v-if="this.unique.length" class="services w-50">
             <h3>Cosa troverai:</h3>
             <ul>
-              <li
-                v-for="service in this.unique"
-                class="d-flex mt-3"
-                :key="service.name"
-              >
-                <font-awesome-icon
-                  v-if="services[service.name]"
-                  :icon="['fas', services[service.name]]"
-                  class="me-3 fs-5"
-                />
+              <li v-for="service in this.unique" class="d-flex mt-3" :key="service.name">
+                <font-awesome-icon v-if="services[service.name]" :icon="['fas', services[service.name]]"
+                  class="me-3 fs-5" />
                 <p>{{ service.name }}</p>
               </li>
             </ul>
