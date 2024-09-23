@@ -13,7 +13,8 @@ export default {
    data() {
       return {
          store,
-         currentPage: 1,
+         current_page: 1,
+         last_page: 1,
          page: [],
       }
    },
@@ -21,6 +22,16 @@ export default {
       CardsComponent,
    },
    methods: {
+      getLastPage(){
+         let totalApartments = this.store.data.results.total;
+         let totalPage = totalApartments / 12;
+
+         if (!totalPage % 0) {
+            return totalPage + 1;
+         }
+
+      },
+
       getApartments() {
          this.store.search = "";
 
@@ -28,12 +39,15 @@ export default {
 
          axios.get(url, {
             params: {
-               page: this.currentPage,
+               page: this.current_page,
             }
          })
             .then(response => {
+               console.log(response);
+               
                this.store.api.apartments = response.data.results.data;
                this.page = response.data.results;
+               this.last_page = Math.ceil(this.page.total / this.page.per_page); 
                console.log(response.data);
                console.log(this.page.results);
 
@@ -43,12 +57,12 @@ export default {
 
       //? Navigazione pagina:
       prevPage() {
-         this.currentPage--;
+         this.current_page--;
          this.getApartments();
          window.scrollTo(0, 0);
       },
       nextPage() {
-         this.currentPage++;
+         this.current_page++;
          this.getApartments();
          window.scrollTo(0, 0);
       }
@@ -71,10 +85,10 @@ export default {
          </div>
          <!--? bottoni per la navigazione -->
          <div class="pagination">
-            <button @click="prevPage" class="mr-25" v-if="page?.prev_page_url">
+            <button @click="prevPage" class="mr-25" :class="{'d-none': current_page == 1 }">
                <font-awesome-icon :icon="['fas', 'arrow-left']" />
             </button>
-            <button @click="nextPage" v-if="page?.next_page_url">
+            <button @click="nextPage" v-if="current_page < last_page">
                <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </button>
          </div>
