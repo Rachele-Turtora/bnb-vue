@@ -24,7 +24,6 @@ export default {
 
       axios.get(url).then((response) => {
         this.services = response.data.results;
-        console.log(this.services);
       });
     },
     filterResult() {

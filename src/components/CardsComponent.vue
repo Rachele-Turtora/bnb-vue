@@ -11,8 +11,7 @@ export default {
             store,
 
         }
-    },
-
+    }
 
 }
 </script>
@@ -22,6 +21,9 @@ export default {
     <div>
         <div class="m-3">
             <div class="img-container">
+                <div v-if="apartment.ads && apartment.ads.length > 0" class="ad">
+                    <font-awesome-icon :icon="['fas', 'star']" />
+                </div>
                 <router-link :to="{ name: 'details', params: { slug: apartment.slug } }" class="mr-15 link">
                     <img :src="apartment.image.startsWith('http') ? apartment.image : apartment.image_frontend"
                         :alt="apartment.title" class="img-responsive rounded">
@@ -41,11 +43,20 @@ img {
 
 .img-container {
     height: 180px;
+    position: relative;
 
     &:hover {
         transform: scale(1.01);
         transition: .3s;
         cursor: pointer;
+    }
+
+    .ad {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        color: yellow;
     }
 }
 
