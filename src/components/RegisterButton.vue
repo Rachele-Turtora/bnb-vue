@@ -20,24 +20,24 @@ export default {
 
 <template>
     <div class="accesso col d-flex justify-content-end align-items-start m-2">
-        <button class="btn-login" @click="toggleVisibility">
-            <font-awesome-icon :icon="['fas', 'bars']" class="me-2" />
-            <font-awesome-icon :icon="['fas', 'user']" class="ms-2" />
-        </button>
-        <div class="visible border border-secondary-subtle bg-light rounded" v-show="isVisible">
-            <div>
-                <a target="_blank" href="http://localhost:8000/register">
-                    <p class="registrati m-0">Registrati</p>
-                </a>
-            </div>
-            <div>
-                <a target="_blank" href="http://localhost:8000/login">
-                    <p class="accedi m-0">Accedi</p>
-                </a>
-            </div>
+      <button class="btn-login" @click="toggleVisibility">
+        <font-awesome-icon :icon="['fas', 'bars']" class="me-2" />
+        <font-awesome-icon :icon="['fas', 'user']" class="ms-2" />
+      </button>
+      <div class="visible border border-secondary-subtle bg-light rounded" v-show="isVisible" @mouseleave="isVisible = false">
+        <div>
+          <a target="_blank" href="http://localhost:8000/register">
+            <p class="registrati m-0">Registrati</p>
+          </a>
         </div>
+        <div>
+          <a target="_blank" href="http://localhost:8000/login">
+            <p class="accedi m-0">Accedi</p>
+          </a>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
 
 <style lang="scss" scoped>
 // import
@@ -84,7 +84,7 @@ export default {
         }
 
         div:hover {
-            background-color: rgb(234, 234, 234);
+            background-color: rgba(0, 217, 166, 0.5);
             cursor: pointer;
         }
     }

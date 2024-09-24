@@ -121,7 +121,7 @@ export default {
 						<div class="search d-flex align-items-center justify-content-center" @click="searchByIcon()">
 							<font-awesome-icon :icon="['fas', 'search']" />
 						</div>
-						<div class="result-box rounded" v-if="suggerimenti.length">
+						<div class="result-box rounded" v-if="suggerimenti.length" @mouseleave="suggerimenti=[]">
 							<ul>
 								<li v-for="(suggerimento, index) in suggerimenti" @click="selectInput(index)">
 									<span class="me-3"><font-awesome-icon :icon="['fas', 'map-marker-alt']" /></span>
