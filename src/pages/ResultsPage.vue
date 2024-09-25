@@ -48,7 +48,7 @@ export default {
       <div class="row">
          <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="(apartment, index) in store.api.filteredApartments"
             :key="apartment.id">
-            <CardsComponent :apartment="apartment" />
+            <CardsComponent :apartment="apartment"/>
          </div>
       </div>
    </div>

@@ -46,9 +46,11 @@ export default {
                console.log(response);
                
                this.store.api.apartments = response.data.results.data;
+               this.store.api.apartmentsSponsored = response.data.results.ads_active;
                this.page = response.data.results;
                this.last_page = Math.ceil(this.page.total / this.page.per_page); 
                console.log(response.data);
+               console.log(response.data.results.ads_active);
                console.log(this.page.results);
 
 
@@ -78,9 +80,9 @@ export default {
    <div class="container mt-4">
       <div class="row">
          <div class="d-flex flex-wrap">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="apartment in store.api.apartments" :key="apartment.id">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="(apartment, index) in store.api.apartments" :key="apartment.id">
 
-               <CardsComponent :apartment="apartment" />
+               <CardsComponent :apartment="apartment" :apartmentsSponsored="sponsored" v-show="apartment.active === 1"/>
             </div>
          </div>
          <!--? bottoni per la navigazione -->
