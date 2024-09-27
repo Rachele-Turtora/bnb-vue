@@ -29,6 +29,7 @@ export default {
         email: this.form.email,
         content: this.form.content,
       };
+      console.log(`${this.store.api.baseUrl}homes/${this.apartmentSlug}/message`); // Verifica la URL
 
       axios
         .post(
@@ -51,20 +52,26 @@ export default {
         })
         .catch((error) => {
           if (error.response.status === 422) {
-            // errori di validazione:
-            this.messageError =
-              "Ci sono errori nei dati inseriti. Verifica e riprova.";
+            const errors = error.response.data.errors;
+            let errorMessages = [];
+              for (let field in errors) {
+                if (errors.hasOwnProperty(field)) {
+                  errorMessages.push(errors[field].join(", "));
+                }
+              }
+
+            this.messageError = "Errores de validación: " + errorMessages.join(" | ");
             this.messageSuccess = "";
             this.isModalVisible = false;
             setTimeout(() => this.elementVisible = false, 3000);
           } else {
-            // gestione errori:
             this.messageError = "Si è verificato un errore. Riprova più tardi.";
             this.messageSuccess = "";
             this.isModalVisible = false;
             setTimeout(() => this.elementVisible = false, 3000);
           }
         });
+        
     },
     showModal() {
       if (this.isModalVisible === false) {
@@ -97,7 +104,7 @@ export default {
   <div class="send-message" :class="{ 'no-scroll modal-container': isModalVisible }">
     <div>
       <div v-show="isModalVisible" class="form-modal">
-        <form action="#" @submit.prevent="sendMessage">
+        <form action="#" @submit.prevent="sendMessage" method="post">
           <div id="form">
             <!-- <buttosn class="btn-absolute" @click="closeModal">X</buttosn> -->
             <a class="btn-absolute" @click="closeModal">X</a>
